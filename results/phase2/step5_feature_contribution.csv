@@ -1,0 +1,8 @@
+Feature Group,Analysis Type,Delta R²
+ICA features,Drop when removed,-0.004319352226536011
+DCIR,Drop when removed,-0.000743375913171862
+Temperature,Drop when removed,-0.011860606104438398
+Physics,Gain when added,0.1344287986849616
+ICA,Gain when added,-0.03643461841781981
+DCIR,Gain when added,-0.008329265135740505
+Temperature,Gain when added,0.03231545585081852

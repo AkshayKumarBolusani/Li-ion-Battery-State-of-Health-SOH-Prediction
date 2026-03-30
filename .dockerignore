@@ -1,0 +1,54 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv
+ENV
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Data (large files - model files are needed)
+NASA_DataSets/
+MENDELEY_*/
+data/
+
+# Results and logs
+results/
+logs/
+*.log
+
+# Notebooks (not needed for API)
+notebooks/
+
+# Documentation (not needed in container)
+*.md
+!README.md
+
+# Tests
+tests/
+test_*.py
+
+# Misc
+.DS_Store
+Thumbs.db
+*.tar
+*.tar.gz
+
+# Env files
+.env
+!.env.example

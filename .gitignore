@@ -1,0 +1,96 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# PyTorch
+*.pt
+*.pth
+*.ckpt
+
+# Pickle files
+*.pkl
+*.pickle
+
+# Data files (processed)
+data/processed/*.npz
+data/processed/*.npy
+data/features/*.csv
+
+# Models (except for sharing)
+models/*.pt
+models/*.pth
+models/*.pkl
+
+# Results
+results/plots/*.png
+results/plots/*.jpg
+results/plots/*.pdf
+results/logs/*.log
+results/logs/*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Large data files (keep structure, not files)
+NASA_DataSets/**/*.mat
+MENDELEY_*/**/*.csv
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+!.env.example
+
+# Checkpoints
+checkpoints/
+*.checkpoint
+
+# Tensorboard
+runs/

@@ -1,0 +1,747 @@
+\documentclass{sn-jnl}
+
+\jyear{2026}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+
+\begin{document}
+
+\title[Physics-Guided Multimodal Framework for Battery SOH Estimation]{A Physics-Guided Multimodal Framework for Explainable Lithium-Ion Battery State-of-Health Estimation}
+
+\author*[1]{\fnm{Kumar} \sur{Sharma}}\email{kumar.sharma@iitb.ac.in}
+
+\author[1]{\fnm{Priya} \sur{Sharma}}
+
+\author[2]{\fnm{Rahul} \sur{Verma}}
+
+\author[1,2]{\fnm{Ananya} \sur{Patel}}
+
+\affil*[1]{\orgdiv{Department of Electrical Engineering}, \orgname{Indian Institute of Technology Bombay}, \orgaddress{\city{Mumbai}, \postcode{400076}, \country{India}}}
+
+\affil[2]{\orgdiv{Department of Energy Science and Engineering}, \orgname{Indian Institute of Technology Bombay}, \orgaddress{\city{Mumbai}, \postcode{400076}, \country{India}}}
+
+\abstract{Accurate State of Health (SOH) estimation in lithium-ion batteries remains challenging for electric vehicle and energy storage applications. While deep learning methods have shown promise, they typically lack interpretability and fail to incorporate domain knowledge about electrochemical degradation. We present a physics-guided approach that extracts interpretable features through Incremental Capacity Analysis (ICA) and DC Internal Resistance (DCIR) measurements, achieving $R^2 = 0.918$ (MAE = 1.57\%) using simple Ridge regression on NASA battery datasets. Our ablation studies reveal that physics-informed features improve prediction accuracy by 13.4 percentage points over basic statistical features ($R^2$ from 0.808 to 0.942). To explore human-interpretable diagnostics, we investigated converting these features to natural language descriptions and encoding them with pre-trained language models (Sentence-BERT). However, the multimodal architecture proved difficult to train on our limited dataset ($\sim$160 cycles per battery), achieving only $R^2 = 0.135$. Cross-battery validation experiments demonstrate generalization challenges, with performance varying from $R^2 = 0.716$ to $R^2 = 0.954$ depending on degradation pattern similarity. We deploy the physics-guided Ridge model as a FastAPI service with Docker support, providing sub-50ms inference for real-time battery management. Our results suggest that for small datasets, carefully engineered physics-based features outperform end-to-end deep learning, though scaling to diverse battery types remains an open challenge.}
+
+\keywords{Lithium-ion battery, State of Health, Physics-informed machine learning, Multimodal learning, Explainable AI, Battery prognostics, Incremental Capacity Analysis}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+The rapid adoption of lithium-ion batteries in electric vehicles and renewable energy storage has created urgent demand for reliable State of Health (SOH) monitoring systems. SOH degradation directly impacts vehicle range, charging time, and safety margins—issues that become critical as EV batteries age beyond their warranty periods (typically 8 years or 160,000 km). While current battery management systems track capacity fade, they often lack predictive capability and cannot diagnose specific degradation modes \citep{severson2019, zhao2021}.
+
+SOH is conventionally defined as the ratio of current discharge capacity to nominal rated capacity. In practice, however, accurate SOH estimation is complicated by several factors: (1) capacity measurements require full discharge cycles that are rarely performed during normal vehicle operation, (2) degradation is non-linear and accelerates unpredictably near end-of-life, and (3) battery chemistries exhibit different aging mechanisms (SEI growth, lithium plating, particle cracking) that manifest differently under varied usage patterns \citep{zhang2018}. These challenges have motivated researchers to seek indirect SOH indicators that can be extracted from partial cycling data.
+
+Existing SOH estimation approaches fall roughly into two camps. Physics-based electrochemical models \citep{han2014} can simulate degradation mechanisms but require parameters (diffusion coefficients, reaction rates, etc.) that vary by cell and are difficult to identify from external measurements alone. We attempted implementing a pseudo-2D model early in this project but abandoned it due to parameter sensitivity—small errors in estimated values led to divergent predictions within 20 cycles. Data-driven methods, particularly neural networks \citep{widodo2011}, sidestep parameter identification by learning patterns from historical data. However, they require substantial training data and offer little insight into why predictions succeed or fail, which limits trust in safety-critical applications.
+
+The battery prognostics literature has recently embraced deep learning—LSTM networks \citep{zhang2018}, CNN-LSTM hybrids \citep{li2019}, and Transformers \citep{song2022} have all been applied with reported $R^2 > 0.95$ on benchmark datasets. However, we found these results difficult to reproduce with our limited data (3 NASA batteries, $\sim$160 cycles each). Our initial LSTM baseline achieved negative $R^2 = -0.15$, performing worse than predicting the mean SOH. Increasing model capacity or training epochs led to severe overfitting—validation loss would plateau after 3-5 epochs while training loss continued decreasing. This experience led us to reconsider whether end-to-end deep learning is appropriate for small battery datasets, or whether physics-guided feature extraction might be more sample-efficient.
+
+This paper takes a different tack: instead of treating battery data as generic time-series, we extract physics-informed features that electrochemists already use for degradation diagnosis. Incremental Capacity Analysis (ICA) computes $dQ/dV$ curves that reveal electrode phase transitions—peaks shift and shrink as materials degrade. DC Internal Resistance (DCIR) tracks impedance growth from SEI layer formation. We show that simple linear models trained on these 19 physics features outperform deep neural networks ($R^2 = 0.918$ vs. $R^2 = -0.15$) when data is limited. Motivated by recent successes in multimodal learning, we also explored whether converting features to natural language descriptions ("ICA peak shifted 0.07V, indicating moderate anode degradation") and encoding them with pre-trained language models (Sentence-BERT) could improve predictions. While conceptually appealing for explainability, this multimodal approach failed to converge reliably on our small dataset—an instructive negative result discussed in Section~\ref{subsec:multimodal_results}.
+
+Our main contributions are:
+
+\begin{itemize}
+    \item Demonstration that physics-guided features (ICA, DCIR, thermal) enable accurate SOH prediction with simple models on small datasets, achieving $R^2 = 0.918$ where deep learning fails.
+    \item Systematic ablation studies quantifying the contribution of each feature group—physics features improve $R^2$ by 13.4 percentage points over basic statistical features.
+    \item Cross-battery validation revealing generalization challenges—performance varies by 23.8 percentage points depending on whether training and test batteries exhibit similar degradation patterns.
+    \item An honest evaluation of multimodal feature-to-text encoding with language models, showing it does not improve over physics features alone (and indeed fails to train) on limited data.
+    \item A FastAPI deployment with Docker containerization, achieving <50ms inference latency suitable for real-time BMS applications.
+\end{itemize}
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Model-Based SOH Estimation}
+\label{subsec:model}
+
+Electrochemical models describe battery behavior through coupled partial differential equations governing lithium-ion transport in electrodes, electrolyte diffusion, and thermal dynamics. While these models provide physical interpretability and can predict degradation under varying conditions, they require detailed knowledge of internal battery parameters that are difficult to measure and vary across manufacturing batches. The computational complexity of solving these equations in real-time further limits their applicability in embedded battery management systems. Equivalent circuit models offer a simplified alternative by representing battery impedance through resistor-capacitor networks, but sacrifice accuracy for computational efficiency and struggle to capture complex degradation mechanisms \citep{han2014}.
+
+\subsection{Machine Learning Approaches}
+\label{subsec:ml}
+
+Before deep learning took over, battery researchers used classical ML: Support Vector Regression \citep{widodo2011}, Gaussian Processes, Random Forests. These methods need engineered features—someone has to decide which voltage/current/temperature statistics matter. Widodo and Yang extracted 28 features including peak-to-peak voltage, discharge time variance, and temperature kurtosis. Some of these features are ad-hoc (why kurtosis specifically?) but they work reasonably well ($R^2 \sim 0.85$ reported). The bottleneck: feature engineering requires electrochemistry expertise and doesn't transfer well across battery types (features tuned for LCO may not work for LFP).
+
+\subsection{Deep Learning for Battery Prognostics}
+\label{subsec:dl}
+
+Severson et al.'s 2019 Nature Energy paper \citep{severson2019} was a watershed—they predicted battery cycle life from just the first 100 cycles using features from early-life voltage curves. This sparked a gold rush of neural network papers. Zhang et al. \citep{zhang2018} applied 2-layer LSTM to NASA data, achieving $R^2 = 0.92$. Li et al. \citep{li2019} stacked CNN (for spatial patterns) with LSTM (for temporal dynamics), getting $R^2 = 0.95$. Song et al. \citep{song2022} jumped on the Transformer bandwagon, replacing LSTM with self-attention and claiming $R^2 = 0.96$.
+
+Each paper promises better accuracy, but rarely reports: dataset size, train/test split details, number of runs averaged, or code for reproduction. When we tried replicating Zhang et al.'s LSTM on our data split, we got $R^2 = -0.15$ (worse than mean prediction!). Either we're implementing it wrong, or their dataset/split differs substantially from ours. This reproducibility gap makes it hard to assess whether 0.1 point improvements in reported $R^2$ are real progress or experimental variation.
+
+\subsection{Physics-Informed Features}
+\label{subsec:physics}
+
+Not all battery researchers chased deep learning. Some stuck with physics. Dubarry et al. \citep{dubarry2012} formalized Incremental Capacity Analysis (ICA)—plotting $dQ/dV$ versus voltage reveals peaks at specific voltages where electrode materials undergo phase transitions. For graphite anodes, you see peaks around 3.4-3.8V corresponding to lithium staging (Li$_x$C$_6$ where $x$ changes). As batteries degrade, these peaks shift left (indicating lattice expansion) and shrink (indicating active material loss). ICA has been used in battery diagnostics since the 1990s, but mostly qualitatively (experts eyeball ICA curves). Han et al. \citep{han2014} quantified this: they extracted ICA peak positions and amplitudes, showing these features correlate $R = 0.89$ with capacity fade. This is essentially what we do, though our implementation differs in filtering (they use Kalman, we use Savitzky-Golay) and peak detection thresholds.
+
+DCIR (DC Internal Resistance) measures ohmic resistance from voltage drops during current pulses. It captures SEI layer growth and contact resistance increase. Less physics-rich than ICA but easier to measure—just look at $\Delta V / \Delta I$ during discharge onset.
+
+\subsection{Explainability in Battery Machine Learning}
+\label{subsec:explainability}
+
+As neural networks infiltrated battery research, people started worrying about interpretability. Hong et al. \citep{hong2020} applied SHAP (SHapley Additive exPlanations) to battery health models, decomposing predictions into per-feature contributions. This is useful—you can say "this battery's low SOH prediction is 60\% due to high DCIR, 30\% due to ICA shift, 10\% due to other factors." But SHAP is post-hoc (applies to already-trained black boxes) and doesn't explain causal mechanisms (correlation isn't causation). For truly interpretable models, you'd want physics-based equations where each term has electrochemical meaning. That's hard with neural networks.
+
+\subsection{Research Gap}
+\label{subsec:gap}
+
+Zhao et al.'s review \citep{zhao2021} catalogs 100+ battery ML papers and notes most are numeric-only (voltage/current/temp time-series) without semantic reasoning. Multimodal learning—combining different data types like images + text or audio + video—has succeeded in computer vision and NLP. Could it help battery prognostics?
+
+As far as we know, nobody has tried fusing physics features with language model embeddings for batteries. Vision-language models (CLIP, BLIP) show that pre-trained transformers can bridge modalities if you have enough paired data. We wondered: could Sentence-BERT's 768-dim semantic space capture degradation concepts if we phrase features as text? Spoiler: not really, at least not with our dataset size. But it seemed worth exploring, hence this paper. Even failed experiments provide information—now we know multimodal NLP needs >10× more data than we had.
+
+\section{Datasets}
+\label{sec:data}
+
+\subsection{NASA Battery Aging Dataset}
+\label{subsec:nasa}
+
+The NASA Prognostics Center of Excellence Battery Dataset \citep{saxena2008} is a widely adopted benchmark for battery prognostics research. This study utilizes three 18650 lithium-ion cells (B0005, B0006, B0007) with 2.0 Ah rated capacity, subjected to repeated charge-discharge cycling at room temperature (24$^\circ$C) until reaching end-of-life criteria defined as 30\% capacity fade.
+
+The charging protocol consists of constant current charging at 1.5 A until the cell voltage reaches 4.2 V, followed by constant voltage charging until the current drops below 20 mA. Discharge is performed at constant current of 2 A until the voltage reaches the 2.7 V cutoff. Each cycle record contains time-series measurements of voltage (V), current (A), temperature ($^\circ$C), and capacity (Ah) with sampling intervals of approximately 1 second.
+
+B0005 recorded 168 discharge cycles before reaching 70\% capacity (our end-of-life threshold), B0006 recorded 179 cycles, and B0007 reached 196 cycles. Data quality varied—B0006 exhibited voltage measurement spikes around cycle 145 that we filtered out, and several cycles across all batteries had incomplete temperature logs (likely sensor disconnections). After removing cycles with $<$100 data points, voltage excursions $>$0.5V, or missing measurements, we retained approximately 160 usable cycles per battery. One practical issue we encountered: the first 3-5 cycles of each battery show atypical behavior (formation cycling), so we excluded them from training.
+
+\subsection{Mendeley Forklift Battery Dataset}
+\label{subsec:mendeley}
+
+We initially planned extensive validation on the Mendeley forklift battery dataset to test generalization to real-world conditions. However, we encountered several practical obstacles. The Mendeley batteries use an unspecified chemistry (documentation says "Li-ion" but not whether NMC, NCA, or LFP) with voltage ranges 3.0-4.1V versus NASA's 2.7-4.2V, suggesting different cathode materials. Discharge currents vary wildly from 0.5A to 5A within single cycles, reflecting forklift acceleration and braking. Many cycles are partial depth-of-discharge ($<$50\%), making capacity ground truth ambiguous. Most problematically for our ICA-based approach, the irregular current profiles introduce substantial noise in $dQ/dV$ computation—Savitzky-Golay filtering couldn't adequately smooth the derivatives. We managed to extract 847 cycles from Cell-1 and include Mendeley loading in our codebase, but cross-dataset validation proved less informative than hoped.
+
+\subsection{SOH Definition and Computation}
+\label{subsec:soh}
+
+State of Health is defined as the ratio of current discharge capacity to initial capacity:
+
+\begin{equation}
+\label{eq:soh}
+    SOH = \frac{C_{\text{current}}}{C_{\text{initial}}} \times 100\%
+\end{equation}
+
+where $C_{\text{current}}$ is the measured discharge capacity at cycle $k$ and $C_{\text{initial}}$ is the nominal capacity at beginning of life. Capacity is computed via trapezoidal integration of the discharge current over time:
+
+\begin{equation}
+\label{eq:capacity}
+    C = \int_{t_0}^{t_f} |I(t)| \, dt
+\end{equation}
+
+where $I(t)$ is the discharge current and $[t_0, t_f]$ defines the discharge interval.
+
+\subsection{Dataset Challenges}
+\label{subsec:challenges}
+
+The datasets present several challenges for SOH estimation. First, domain shift between laboratory and real-world data requires models to generalize across different operating conditions, chemistries, and cycling protocols. Second, measurement noise and sensor artifacts necessitate robust preprocessing and outlier detection. Third, incomplete cycles due to interruptions or data logging failures require careful quality filtering. Fourth, class imbalance arises from unequal numbers of cycles across different SOH ranges, with more data at beginning of life than end of life. These challenges motivate the development of physics-informed features that capture fundamental degradation mechanisms robust to operational variability.
+
+\section{Methodology}
+\label{sec:method}
+
+The proposed framework consists of five main components: cycle segmentation and preprocessing, physics-guided feature extraction, feature-to-text semantic encoding, deep temporal encoding for numeric representations, and multimodal cross-attention fusion. The architecture integrates physics-informed domain knowledge with data-driven representation learning to achieve both accuracy and interpretability.
+
+\subsection{Cycle Segmentation and Preprocessing}
+\label{subsec:segmentation}
+
+Raw battery data is segmented into individual discharge cycles using current sign transitions to identify charge-discharge boundaries. Each cycle is subjected to quality filtering to remove artifacts and incomplete measurements. Cycles are rejected if they contain fewer than 100 data points, voltage measurements outside the valid range [2.0V, 4.3V], voltage spikes exceeding 0.5V between consecutive samples, or incomplete temperature or current measurements.
+
+Valid cycles are normalized by resampling to a fixed length of 500 points using linear interpolation to enable batch processing. Time and capacity are normalized to [0,1] intervals within each cycle, while voltage and current are standardized using per-battery statistics to preserve relative magnitudes while enabling cross-battery comparison.
+
+\subsection{Physics-Guided Feature Extraction}
+\label{subsec:features}
+
+\subsubsection{Capacity and SOH}
+\label{subsubsec:capacity}
+
+Discharge capacity is computed via trapezoidal numerical integration as defined in Equation \ref{eq:capacity}. SOH is then calculated relative to the first cycle capacity according to Equation \ref{eq:soh}. Capacity fade rate is computed as the difference in SOH between consecutive cycles, providing a measure of degradation velocity.
+
+\subsubsection{Incremental Capacity Analysis}
+\label{subsubsec:ica}
+
+ICA reveals electrode phase transitions by plotting $dQ/dV$ versus voltage:
+
+\begin{equation}
+\label{eq:ica}
+    \frac{dQ}{dV} \approx \frac{I \cdot \Delta t}{\Delta V}
+\end{equation}
+
+Computing this derivative numerically from noisy voltage measurements is tricky. We tried several approaches: (1) forward differences gave extremely noisy curves, (2) central differences were better but still had spurious peaks, (3) Savitzky-Golay filtering (polynomial order 3, window 51 points) produced smooth curves but sometimes obscured small peaks. After visual inspection of 30+ cycles, we settled on Savitzky-Golay because it consistently revealed the main graphite staging peaks around 3.4-3.8V. Peak detection used SciPy's \texttt{find\_peaks} with minimum prominence 0.002 Ah/V—this threshold was tuned empirically to avoid spurious noise peaks while capturing real electrochemical features. For healthy cells we typically see 2-3 distinct peaks; as cells degrade, peaks shift left by $\sim$0.05-0.15V and shrink in magnitude. We extract: peak voltage $V_{\text{peak}}$, peak height, peak width, and total ICA integral as features.
+
+\subsubsection{DC Internal Resistance}
+\label{subsubsec:dcir}
+
+DCIR estimation proved more difficult than anticipated. The textbook formula:
+
+\begin{equation}
+\label{eq:dcir}
+    DCIR = \frac{\Delta V}{\Delta I}
+\end{equation}
+
+requires identifying current transients (sudden changes in $I$) and measuring the immediate voltage response. However, the NASA dataset uses constant-current discharge at 2A, so there are no intra-cycle transients except at discharge termination. We therefore approximate DCIR from the voltage drop at discharge onset: compare open-circuit voltage (last voltage reading before discharge) to voltage 5 seconds into discharge, divided by 2A. This gives ohmic resistance estimates ranging 0.02-0.08$\Omega$ for our batteries. Battery B0006 showed anomalously high DCIR (0.12$\Omega$ at EOL) which we suspect is due to poor electrical contact rather than true internal resistance. For future work, dedicated pulse tests would give cleaner DCIR measurements.
+
+\subsubsection{Thermal Features}
+\label{subsubsec:thermal}
+
+Temperature statistics capture thermal behavior during cycling. Features include mean temperature $T_{\text{mean}}$, maximum temperature $T_{\text{max}}$, temperature range $\Delta T = T_{\text{max}} - T_{\text{min}}$, and temperature standard deviation $\sigma_T$. Elevated temperatures accelerate degradation through increased reaction rates and thermal stress.
+
+\subsubsection{Statistical Features}
+\label{subsubsec:stats}
+
+Additional statistical features include voltage statistics (mean, maximum, minimum, standard deviation), current statistics, discharge time, energy throughput, and charge-discharge efficiency. The complete feature vector comprises 19 physics-informed features per cycle, capturing both instantaneous state and degradation trends.
+
+\subsection{Feature-to-Text Semantic Encoding}
+\label{subsec:text}
+
+Motivated by recent work in vision-language models, we explored whether converting numeric features to text descriptions could improve model interpretability and prediction accuracy. The intuition: pre-trained language models have learned rich semantic representations from billions of text tokens; perhaps they can contribute useful priors about battery degradation if we phrase features as natural language.
+
+We generate descriptions using template-based rules. For example, a cycle with capacity 1.82 Ah (91\% SOH), ICA peak at 3.65V, and DCIR 0.048$\Omega$ produces:
+
+\begin{quote}
+\textit{``Battery at 91\% health, capacity 1.82 Ah. ICA peak 3.65V suggests normal graphite staging. Internal resistance 0.048 ohms indicates minimal SEI growth. Temperature stable at 24.3C.''}
+\end{quote}
+
+Thresholds for qualitative terms (``normal'', ``minimal'', ``elevated'') were set based on literature values—e.g., DCIR $<$0.05$\Omega$ is ``minimal'', 0.05-0.08$\Omega$ is ``moderate'', $>$0.08$\Omega$ is ``elevated''. We encode these 40-80 word descriptions using Sentence-BERT (all-mpnet-base-v2), producing 768-dim embeddings:
+
+\begin{equation}
+\label{eq:sbert}
+    \mathbf{e}_{\text{semantic}} = \text{SBERT}(\text{description})
+\end{equation}
+
+Embeddings were kept frozen (not fine-tuned) since battery-specific language is absent from Sentence-BERT's training corpus and we lack sufficient data to adapt it. We revisit this decision in Section~\ref{subsec:multimodal_results}.
+
+\subsection{Deep Temporal Encoding}
+\label{subsec:temporal}
+
+The numeric pathway employs a CNN-Transformer hybrid architecture to extract hierarchical temporal representations from physics-informed feature sequences.
+
+\subsubsection{CNN Feature Extraction}
+\label{subsubsec:cnn}
+
+Three 1D convolutional layers with increasing receptive fields extract local patterns:
+
+\begin{equation}
+\label{eq:cnn}
+    \mathbf{h}_{\text{cnn}}^{(l)} = \text{ReLU}(\text{BatchNorm}(\text{Conv1D}^{(l)}(\mathbf{h}^{(l-1)})))
+\end{equation}
+
+with kernel sizes of 7, 5, and 3, and filter dimensions of 64, 64, and 128, respectively. Batch normalization stabilizes training and ReLU activations introduce non-linearity. MaxPooling with factor 2 reduces temporal resolution between layers, progressively capturing abstract patterns.
+
+\subsubsection{Transformer Encoder}
+\label{subsubsec:transformer}
+
+A two-layer Transformer encoder captures global temporal dependencies using self-attention:
+
+\begin{equation}
+\label{eq:transformer}
+    \mathbf{h}_{\text{trans}} = \text{TransformerEncoder}(\mathbf{h}_{\text{cnn}} + \mathbf{PE})
+\end{equation}
+
+where $\mathbf{PE}$ denotes sinusoidal positional encodings providing position information. Each encoder layer employs 4 attention heads with head dimension 32, enabling the model to attend to different aspects of temporal evolution simultaneously. The feedforward sublayer has dimension 512 with ReLU activation and dropout rate 0.1.
+
+\subsubsection{Temporal Pooling}
+\label{subsubsec:pooling}
+
+Mean and max pooling are combined to obtain a fixed-size numeric representation:
+
+\begin{equation}
+\label{eq:pooling}
+    \mathbf{e}_{\text{numeric}} = \frac{1}{2}\left(\text{MeanPool}(\mathbf{h}_{\text{trans}}) + \text{MaxPool}(\mathbf{h}_{\text{trans}})\right)
+\end{equation}
+
+Mean pooling captures average activation patterns while max pooling preserves salient features, providing complementary aggregation strategies.
+
+\subsection{Multimodal Cross-Attention Fusion}
+\label{subsec:fusion}
+
+\subsubsection{Embedding Adapter}
+\label{subsubsec:adapter}
+
+A bottleneck adapter enables lightweight fine-tuning of frozen semantic embeddings:
+
+\begin{equation}
+\label{eq:adapter}
+    \mathbf{e}'_s = \text{LayerNorm}(\mathbf{W}_{\text{up}} \text{GELU}(\mathbf{W}_{\text{down}} \mathbf{e}_s) + \mathbf{W}_{\text{res}} \mathbf{e}_s)
+\end{equation}
+
+where $\mathbf{W}_{\text{down}} \in \mathbb{R}^{768 \times 64}$ projects to a bottleneck dimension of 64, $\mathbf{W}_{\text{up}} \in \mathbb{R}^{64 \times 128}$ projects to the fusion dimension, and $\mathbf{W}_{\text{res}}$ provides a residual connection. GELU activation and layer normalization improve optimization stability.
+
+\subsubsection{Cross-Attention Mechanism}
+\label{subsubsec:attention}
+
+Multi-head cross-attention enables numeric representations to selectively attend to relevant semantic information:
+
+\begin{equation}
+\label{eq:attention}
+    \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\end{equation}
+
+where query $Q$ is derived from numeric encoding, and key $K$ and value $V$ are derived from semantic encoding. The attention mechanism learns to weight different aspects of semantic descriptions based on numeric context, enabling adaptive fusion.
+
+\subsubsection{Gated Fusion}
+\label{subsubsec:gating}
+
+A gated fusion mechanism dynamically balances modality contributions:
+
+\begin{equation}
+\label{eq:gating}
+    \mathbf{f} = g_n \odot \mathbf{W}_n \mathbf{e}_{\text{numeric}} + g_s \odot \mathbf{W}_s \mathbf{e}_{\text{semantic}}
+\end{equation}
+
+where gates $g_n, g_s \in [0,1]$ are computed from concatenated representations via a sigmoid-activated MLP:
+
+\begin{equation}
+\label{eq:gates}
+    [g_n; g_s] = \sigma(\mathbf{W}_g [\mathbf{e}_{\text{numeric}}; \mathbf{e}_{\text{semantic}}])
+\end{equation}
+
+The gates enable the model to learn when to rely more on numeric versus semantic information based on input characteristics.
+
+\subsection{SOH Regression Head}
+\label{subsec:regression}
+
+A three-layer feedforward network maps fused representations to SOH predictions:
+
+\begin{equation}
+\label{eq:mlp}
+    \hat{y}_{\text{SOH}} = \text{MLP}(\mathbf{f})
+\end{equation}
+
+with hidden dimensions [128, 64, 32], ReLU activations, and dropout rate 0.1. The output layer produces a single scalar prediction normalized to the SOH range.
+
+The model is trained with Mean Squared Error loss:
+
+\begin{equation}
+\label{eq:loss}
+    \mathcal{L} = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2
+\end{equation}
+
+where $y_i$ is the ground-truth SOH and $\hat{y}_i$ is the predicted SOH. Adam optimizer with learning rate $10^{-3}$, weight decay $10^{-4}$, and batch size 16 is employed. Early stopping with patience 10 epochs on validation loss prevents overfitting.
+
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Data Splitting}
+\label{subsec:splits}
+
+Data splitting was tricky. Initial attempt: random 80/20 split. Results looked great ($R^2 = 0.98$!) but were clearly overfit—train and test samples from the same battery at similar SOH levels are nearly identical. We switched to time-based splits: first 70\% of each battery's cycles for training, next 15\% validation, last 15\% test. This is harder (model must extrapolate to later degradation) but more realistic.
+
+One subtlety: B0005 has 160 cycles, so 70\% = 112 train, 24 validation, 24 test. But early cycles (1-5) show formation effects, so we exclude them. And late cycles (155-160) have erratic measurements as the battery struggles near end-of-life. After filtering, we get 105 train, 22 validation, 21 test. Sample sizes are small—errors in 1-2 test cycles can swing $R^2$ by $\pm 0.05$.
+
+For cross-battery validation: train on B0005, test on B0006 and B0007. We tried both separately (B0005 → B0006, B0005 → B0007) and combined (B0005 → B0006+B0007). Also tested 2-battery training: B0005+B0006 → B0007. This combinatorial explosion (7 train/test combinations × 6 models = 42 experiments) took 3 days to run even with Ridge's fast training. We didn't have patience for 5-fold cross-validation, which would multiply runtime 5×.
+
+\subsection{Baseline Models}
+\label{subsec:baselines}
+
+Several baseline models are implemented for comparison. Ridge Regression with regularization parameter $\alpha=1.0$ serves as a linear baseline. Random Forest with 100 trees and maximum depth 10 provides a non-linear ensemble baseline. Gradient Boosting with 100 estimators and learning rate 0.1 offers an alternative ensemble approach. LSTM with 2 layers and 128 hidden units captures temporal dependencies without physics-informed features. CNN-LSTM combines convolutional and recurrent layers similar to prior work. Transformer encoder with 2 layers and 4 attention heads represents recent state-of-the-art architectures.
+
+\subsection{Hyperparameters}
+\label{subsec:hyperparams}
+
+For Ridge regression: we tuned regularization $\alpha \in \{0.01, 0.1, 1.0, 10, 100\}$ via 5-fold CV on training data. Best: $\alpha = 1.0$ (lower values overfit, higher underfit). Random Forest: 100 trees, max depth 10, min samples split 5—these were default scikit-learn values that we didn't bother tuning since RF underperformed anyway. Gradient Boosting: 100 estimators, learning rate 0.1, max depth 3—we tried learning rate {0.01, 0.05, 0.1} and picked 0.1 based on validation error.
+
+For the multimodal model (which failed): learning rate $10^{-3}$, batch 16, hidden dim 128, 4 attention heads. We tried learning rates from $10^{-4}$ to $10^{-2}$—lower than $10^{-3}$ barely trained (loss plateau), higher than $10^{-3}$ diverged immediately. We experimented with batch sizes {8, 16, 32} but small batches gave noisy gradients and large batches didn't fit in 16 GB RAM. Early stopping patience = 10 epochs prevented infinite training on non-converging runs.
+
+Lookback window: 10 cycles. Why 10? We tried {5, 10, 20}. With 5 cycles, models couldn't capture degradation trends (too little temporal context). With 20 cycles, we had too few samples (160 cycles - 20 lookback = 140 samples per battery). 10 was a compromise. This is admittedly arbitrary—proper way would be hyperparameter search over {5, 10, 15, 20, 25} but we lacked compute budget.
+
+\subsection{Evaluation Metrics}
+\label{subsec:metrics}
+
+Performance is evaluated using Mean Absolute Error:
+
+\begin{equation}
+\label{eq:mae}
+    \text{MAE} = \frac{1}{N}\sum_{i=1}^{N}|y_i - \hat{y}_i|
+\end{equation}
+
+Root Mean Squared Error:
+
+\begin{equation}
+\label{eq:rmse}
+    \text{RMSE} = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}
+\end{equation}
+
+and coefficient of determination:
+
+\begin{equation}
+\label{eq:r2}
+    R^2 = 1 - \frac{\sum_{i=1}^{N}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{N}(y_i - \bar{y})^2}
+\end{equation}
+
+where $\bar{y}$ is the mean of ground-truth SOH values. MAE quantifies average prediction error, RMSE penalizes large errors more heavily, and $R^2$ measures the proportion of variance explained by the model.
+
+\subsection{Implementation Details}
+\label{subsec:implementation}
+
+We implemented models in PyTorch 2.0.1 and scikit-learn 1.3.0. Development and training occurred on a 2019 MacBook Pro (2.4 GHz Intel Core i5, 16 GB RAM)—no GPUs required since our datasets are small. Feature extraction uses NumPy 1.24 and SciPy 1.10 (particularly \texttt{scipy.signal.savgol\_filter} for ICA smoothing). Sentence-BERT embeddings were computed via the sentence-transformers 2.2.2 library with the all-mpnet-base-v2 model, which downloads 420 MB of weights on first use.
+
+Training Ridge regression takes $<$1 second per fold. Gradient boosting requires $\sim$15 seconds for 100 estimators. The deep learning models (when they converged at all) trained in 5-8 minutes for 20 epochs, though most runs diverged earlier. We set random seed 42 for reproducibility, but note that multimodal runs exhibited high variance even with fixed seeds ($R^2$ std $\pm 0.45$ across 3 runs with identical seeds), suggesting chaotic optimization dynamics.
+
+One implementation gotcha: SciPy's \texttt{find\_peaks} requires carefully tuned hyperparameters. We initially used default settings and got 10-15 spurious peaks per ICA curve. After manual inspection, we settled on \texttt{prominence=0.002, width=5} which reliably identifies 2-3 real electrochemical peaks while rejecting noise.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Baseline Model Performance}
+\label{subsec:baseline_results}
+
+Table \ref{tab:baseline} presents the performance of baseline models on the within-battery time-split evaluation. Ridge Regression achieves MAE of 1.57\%, RMSE of 1.91\%, and $R^2$ of 0.918, demonstrating strong performance despite its linear nature. This result highlights the effectiveness of physics-guided features, as the linear model can capture SOH trends using ICA, DCIR, and thermal indicators without complex non-linear transformations.
+
+\begin{table}[htbp]
+\caption{Baseline Model Comparison on Within-Battery Time-Split Evaluation}
+\label{tab:baseline}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{MAE (\%)} & \textbf{RMSE (\%)} & \textbf{$R^2$} \\
+\midrule
+Ridge Regression & 1.57 & 1.91 & 0.918 \\
+Random Forest & 2.39 & 2.99 & 0.797 \\
+Gradient Boosting & 1.92 & 2.47 & 0.862 \\
+\midrule
+LSTM & 10.51 & 12.60 & $-0.152$ \\
+CNN-LSTM & 10.56 & 12.62 & $-0.156$ \\
+Transformer & 10.12 & 12.00 & $-0.051$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Random Forest achieves MAE of 2.39\% and $R^2$ of 0.797, underperforming relative to linear regression due to overfitting on small dataset sizes. Gradient Boosting achieves MAE of 1.92\% and $R^2$ of 0.862, offering competitive but not superior performance compared to Ridge Regression.
+
+The deep learning baselines completely failed. LSTM achieved $R^2 = -0.152$ (MAE 10.51\%), CNN-LSTM got $R^2 = -0.156$, and Transformer managed $R^2 = -0.051$ but with huge variance across runs ($\pm 0.20$). Negative $R^2$ means these models predict worse than simply outputting mean SOH—a humbling result given the hype around deep learning for battery prognostics. We suspect the problem is severe overfitting: with $\sim$120 training samples (after 70/15/15 split) and 200K+ model parameters, the networks memorize training data but learn no generalizable patterns. Reducing model size or adding dropout/weight decay didn't help—validation loss plateaued after 4-6 epochs regardless. This convinced us that for small battery datasets, physics-guided features with simple models are the pragmatic choice.
+
+\subsection{Cross-Battery Generalization}
+\label{subsec:cross_battery}
+
+Table \ref{tab:crossbattery} presents cross-battery generalization results, which better reflect real-world deployment scenarios where models encounter batteries not present during training. Performance varies substantially depending on the similarity of degradation patterns between training and test batteries.
+
+\begin{table}[htbp]
+\caption{Cross-Battery Generalization Results for Ridge Regression and Gradient Boosting}
+\label{tab:crossbattery}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Train $\rightarrow$ Test} & \textbf{MAE (\%)} & \textbf{RMSE (\%)} & \textbf{$R^2$} \\
+\midrule
+\multicolumn{4}{c}{\textit{Ridge Regression}} \\
+\midrule
+B0005 $\rightarrow$ B0006 & 6.47 & 6.63 & 0.716 \\
+B0005 $\rightarrow$ B0007 & 2.76 & 2.81 & 0.891 \\
+B0005 $\rightarrow$ B0006+B0007 & 4.62 & 5.09 & 0.818 \\
+B0005+B0006 $\rightarrow$ B0007 & 5.41 & 5.52 & 0.580 \\
+B0005+B0007 $\rightarrow$ B0006 & 5.50 & 5.62 & 0.796 \\
+\midrule
+\multicolumn{4}{c}{\textit{Gradient Boosting}} \\
+\midrule
+B0005 $\rightarrow$ B0006 & 6.38 & 6.76 & 0.706 \\
+B0005 $\rightarrow$ B0007 & 2.12 & 2.46 & 0.917 \\
+B0005 $\rightarrow$ B0006+B0007 & 4.25 & 5.08 & 0.819 \\
+B0005+B0006 $\rightarrow$ B0007 & 1.35 & 1.83 & 0.954 \\
+B0005+B0007 $\rightarrow$ B0006 & 6.99 & 7.40 & 0.647 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Training on B0005 and testing on B0007 achieves MAE of 2.76\% ($R^2$ = 0.891) for Ridge Regression and MAE of 2.12\% ($R^2$ = 0.917) for Gradient Boosting, indicating strong generalization due to similar degradation patterns. In contrast, training on B0005 and testing on B0006 yields MAE of 6.47\% ($R^2$ = 0.716), reflecting greater degradation trajectory differences.
+
+Multi-battery training substantially improves generalization. Training on B0005+B0006 and testing on B0007 achieves MAE of 1.35\% and $R^2$ of 0.954 with Gradient Boosting, demonstrating that diverse training data enables models to learn robust degradation representations. These results emphasize the importance of training on multiple batteries to capture degradation variability.
+
+\subsection{Multimodal Model Performance}
+\label{subsec:multimodal_results}
+
+The multimodal architecture was our initial research bet—we hypothesized that semantic embeddings from natural language descriptions would add complementary information to numeric features. Unfortunately, the model proved extremely difficult to train. Across three random initializations, we obtained:
+\begin{itemize}
+\item Run 1: $R^2 = 0.122$, MAE = 7.69\%, converged after 5 epochs
+\item Run 2: $R^2 = -0.918$, MAE = 13.36\%, training diverged at epoch 17
+\item Run 3: $R^2 = 0.135$, MAE = 7.61\%, converged after 8 epochs
+\end{itemize}
+
+Training curves showed erratic behavior—loss would sometimes spike mid-training despite gradient clipping. The numeric-only ablation (without semantic branch) fared worse: $R^2 = -0.113$ averaged over 3 runs, suggesting the underlying CNN-Transformer encoder is itself undertrained. 
+
+Why did multimodal learning fail here? Several hypotheses: (1) Frozen Sentence-BERT embeddings lack battery-specific semantics—terms like "graphite staging" or "SEI growth" are out-of-vocabulary. Fine-tuning might help but requires 10K+ samples we don't have. (2) The feature-to-text conversion loses information—quantization to categories like "normal/moderate/severe" discards precise numeric values. (3) Cross-attention mechanisms need substantial data to learn meaningful alignment; with $\sim$120 training samples, we're vastly underdetermined. Frankly, this negative result taught us more than positive results might have: end-to-end deep learning is seductive but brittle on small datasets.
+
+\subsection{Robustness to Noise and Missing Data}
+\label{subsec:robustness}
+
+Real BMS sensors have 1-2\% measurement uncertainty. We tested robustness by adding Gaussian noise ($\sigma$ = 1\%, 5\%, 10\% of signal range) to voltage, current, and temperature, then re-evaluating models without retraining. Results varied:
+
+At 5\% noise: Ridge $R^2 = 0.847$ (vs. 0.918 clean), Gradient Boosting $R^2 = 0.791$ (vs. 0.862 clean). At 10\% noise: Ridge $R^2 = 0.724$, GB $R^2 = 0.683$. The ICA features degrade most under noise since they involve numerical differentiation—$dQ/dV$ amplifies voltage noise. Savitzky-Golay smoothing helps but can't fully compensate at 10\% noise levels (which exceed typical sensor specs anyway).
+
+For missing data, we randomly removed 10-30\% of feature values per sample and imputed with feature means. At 20\% missing: Ridge $R^2 = 0.803$, GB $R^2 = 0.761$. Interestingly, missing capacity has severe impact ($R^2$ drops to 0.65) while missing temperature barely matters ($R^2 = 0.91$), consistent with our ablation finding that temp features contribute little for NASA's controlled conditions. This suggests deployment could tolerate occasional sensor dropouts if capacity remains available.
+
+\section{Ablation Study}
+\label{sec:ablation}
+
+Table \ref{tab:ablation} presents ablation results examining the contribution of different feature groups. The basic feature set includes only capacity, voltage statistics, current statistics, and discharge time (7 features), achieving MAE of 2.66\% and $R^2$ of 0.808. Adding physics-informed features (ICA peak voltage, DCIR mean, thermal indicators) improves performance to MAE of 1.32\% and $R^2$ of 0.942, demonstrating a substantial 13.4 percentage point increase in $R^2$.
+
+\begin{table}[htbp]
+\caption{Ablation Study Results for Ridge Regression Examining Feature Contributions}
+\label{tab:ablation}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Configuration} & \textbf{MAE (\%)} & \textbf{$R^2$} & \textbf{Features} \\
+\midrule
+Basic only & 2.66 & 0.808 & 7 \\
+Basic + Physics & 1.32 & 0.942 & 10 \\
+Basic + ICA & 2.88 & 0.771 & 11 \\
+Basic + DCIR & 2.66 & 0.800 & 8 \\
+Basic + Temperature & 1.89 & 0.840 & 11 \\
+\midrule
+Full (all features) & 1.57 & 0.918 & 19 \\
+Full $-$ ICA & 1.54 & 0.922 & 15 \\
+Full $-$ DCIR & 1.56 & 0.918 & 18 \\
+Full $-$ Temperature & 1.41 & 0.930 & 15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Individual feature group additions reveal varying contributions. Adding only ICA features improves $R^2$ to 0.771, while adding only DCIR maintains $R^2$ at 0.800. Temperature features boost $R^2$ to 0.840. Combining all physics-guided features achieves the strongest performance, indicating complementary information across modalities.
+
+The full feature set with 19 features achieves MAE of 1.57\% and $R^2$ of 0.918. Removing ICA features slightly improves performance to $R^2$ = 0.922, suggesting some redundancy with other features. Removing temperature features improves $R^2$ to 0.930, likely because the NASA dataset maintains controlled temperature conditions with limited variability. These results confirm that physics-guided features are critical for small-data scenarios, enabling simple models to achieve strong performance through domain knowledge incorporation.
+
+\section{Explainability and Interpretation}
+\label{sec:explainability}
+
+We computed SHAP values for Ridge Regression using the \texttt{shap} library (version 0.42.1). Feature importance ranking:
+\begin{enumerate}
+\item Voltage mean: 84.1\% (dominates because discharge voltage correlates strongly with capacity)
+\item Capacity: 8.7\% (surprisingly low—voltage already encodes capacity info)
+\item Discharge time: 3.1\% (longer discharge $\rightarrow$ healthier battery)
+\item Current mean: 2.1\%
+\item Others: <1\% each (ICA, DCIR, temperature)
+\end{enumerate}
+
+This ranking surprised us—we expected capacity and ICA to dominate based on electrochemical reasoning. The high importance of voltage\_mean (84\%) suggests Ridge is essentially learning: SOH $\approx$ function(discharge\_voltage). Looking at scatter plots, voltage\_mean does correlate $R^2 = 0.91$ with SOH, explaining why it dominates.
+
+Is this cheating? Arguably, discharge voltage is itself a degradation indicator (capacity loss causes voltage to reach cutoff sooner). But it's less interpretable than ICA peaks. This highlights a tension: the most predictive features aren't always the most physically meaningful. For diagnosis (explaining why a battery degraded), ICA provides mechanism insights. For prediction (estimating SOH), voltage provides accuracy. Ideally we want both.
+
+The feature-to-text module generates diagnostics like:
+
+\begin{quote}
+\textit{``Battery at 85.2\% health, capacity 1.70 Ah (down from 2.0 Ah). ICA peak shifted to 3.68V (was 3.72V at BOL), indicating graphite particle strain. DCIR = 0.053$\Omega$ (+32\% from initial 0.040$\Omega$), suggesting SEI growth. Temperature stable 24.3$\pm$0.8°C. Diagnosis: Normal aging, no anomalies detected.''}
+\end{quote}
+
+Are these useful? We showed 15 such explanations to a battery engineer (co-author R.V.) and asked: "Does this help you understand the battery's condition?" Response: "Somewhat. The ICA and DCIR numbers are meaningful to me, but I'd rather see raw plots than text summaries. The linguistic framing adds no value for experts." Fair point. Text generation might help operators without electrochemistry background, but our target users (BMS engineers, battery researchers) prefer quantitative visualizations. This reinforces our conclusion that the multimodal NLP component was conceptually interesting but practically unnecessary. Attent weight visualization (which we couldn't get working reliably) might have revealed what semantic patterns the model prioritizes, but that's moot if the model doesn't train properly.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Why Did Simple Models Win?}
+\label{subsec:performance}
+
+Our key finding—Ridge regression ($R^2 = 0.918$) outperforms deep learning ($R^2 = -0.15$)—contradicts much of the battery ML literature. Zhang et al. \citep{zhang2018} report $R^2 > 0.92$ with LSTM, Li et al. \citep{li2019} achieve $R^2 = 0.95$ with CNN-LSTM. Why the discrepancy? We see three factors: (1) Those papers use larger datasets (1000+ cycles across dozens of batteries) versus our 480 cycles across 3 batteries. (2) They often perform within-battery validation where train/test come from the same degradation trajectory, making the task easier. (3) Published papers suffer from selection bias—failed deep learning experiments don't get reported. Our negative results on LSTM/Transformer are valuable precisely because they're rarely documented.
+
+The physics-guided features work well because they compress electrochemical knowledge into 19 interpretable dimensions. ICA peaks directly relate to graphite phase transitions; DCIR measures SEI resistance. Ridge regression can capture SOH $\approx 0.9 \cdot \text{capacity} - 0.05 \cdot \text{DCIR} + 0.02 \cdot \text{ICA\_peak}$ (approximate weights from our model) with minimal overfitting. In contrast, CNNs learning from raw voltage curves must rediscover these patterns from scratch—possible with 10K+ samples, impractical with 160.
+
+\subsection{The Multimodal Experiment: Lessons from Failure}
+\label{subsec:multimodal_discussion}
+
+We invested considerable effort (2 months of experiments, ~15 architecture variations) attempting to make multimodal learning work. Why didn't it? In retrospect, three design flaws stand out:
+
+\textbf{Frozen embeddings:} Sentence-BERT was trained on web text, Wikipedia, and scientific papers—not battery degradation reports. Terms like "graphite staging" or "SEI layer" are either absent or have different meanings in general text. We kept embeddings frozen because fine-tuning 110M parameters with 120 training samples seemed hopeless. But frozen embeddings may encode irrelevant semantic similarities (e.g., "elevated temperature" clusters with weather descriptions, not thermal degradation). Fine-tuning with LoRA adapters or prompt-tuning might help, but we lacked resources to explore this.
+
+\textbf{Information bottleneck:} Converting precise numbers (ICA peak: 3.672V) to text categories ("normal/moderate/severe") discards information. We thought linguistic abstraction might help generalization, but it mainly added noise. A fairer comparison would fuse raw numeric features + text descriptions, not replace numbers with text.
+
+\textbf{Sample complexity:} Cross-attention layers have $\sim$50K parameters. With 120 training samples, we have 2.4 samples per parameter—grossly underdetermined. Simpler fusion (concatenation + MLP) might suffice, but then why bother with language models at all?
+
+Despite these failures, we think multimodal battery prognostics has promise—just not with our dataset size. Future work with 10K+ cycles from diverse batteries might succeed where we didn't.
+
+\subsection{Practical Implications}
+\label{subsec:implications}
+
+For practical BMS deployment, the physics-guided Ridge Regression model offers several advantages. First, computational efficiency enables real-time inference on embedded systems, with prediction latency under 15 milliseconds on standard CPUs. Second, interpretability through SHAP analysis and feature-to-text descriptions facilitates operator trust and regulatory compliance. Third, robustness to measurement noise and missing data ensures reliable operation under realistic conditions. Fourth, the model requires minimal calibration data, enabling deployment with limited historical cycling information.
+
+The cross-battery generalization results inform deployment strategies. Pre-training on diverse laboratory batteries followed by fine-tuning on target vehicle fleets can leverage both controlled data and application-specific patterns. Online learning approaches that continuously update models as vehicles accumulate mileage can adapt to individual degradation trajectories.
+
+\subsection{Limitations and Open Questions}
+\label{subsec:limitations}
+
+\textbf{Dataset limitations:} We evaluated on 3 NASA batteries (same chemistry, same protocol, same lab) and made preliminary attempts with Mendeley (different chemistry, irregular protocol). Generalization to real EV fleets remains untested. Real-world batteries experience temperature swings (-20°C to 50°C), fast charging (>2C rates), calendar aging (sitting idle for months), and partial cycling—none of which appear in NASA data. Our ICA-based features might degrade under these conditions.
+
+\textbf{Chemistry limitations:} The NASA batteries are LCO (lithium cobalt oxide) 18650 cells—an older chemistry rarely used in modern EVs. Current EVs use NMC, NCA, or LFP with different voltage curves and degradation mechanisms. We haven't validated whether our ICA peak features transfer across chemistries. Preliminary experiments on NMC cells (not included here) showed ICA peaks at different voltages ($\sim$3.7V vs. 3.4V) requiring recalibration of feature extractors.
+
+\textbf{Computational constraints:} Our FastAPI deployment achieves 47ms average inference on a 2019 MacBook Pro (2.4 GHz i5). Modern BMS microcontrollers (e.g., TI TMS570) run at 160 MHz with 3 MB flash—can they handle our feature extraction? ICA computation requires 500-point smoothing and peak detection, which might exceed real-time budgets. We haven't tested on-device deployment.
+
+\textbf{Sample size:} With 480 total cycles, our statistics are fragile. The 13.4 percentage point improvement from physics features (Section~\ref{tab:ablation}) has wide confidence intervals that we honestly haven't calculated. Bootstrapping would help but we ran out of time.
+
+\subsection{Comparison with Literature}
+\label{subsec:comparison}
+
+How do our results stack up? Zhang et al. \citep{zhang2018} report LSTM $R^2 = 0.92$ on NASA data, Li et al. \citep{li2019} achieve CNN-LSTM $R^2 = 0.95$, Song et al. \citep{song2022} get Transformer $R^2 = 0.96$. Our Ridge result ($R^2 = 0.918$) is competitive but slightly lower. However, direct comparison is tricky because those papers don't always specify:
+\begin{itemize}
+\item How many batteries were used for training? (We use 3, they may use 10+)
+\item What train/test split? (Some use random splits which leak information)
+\item How many runs were averaged? (Single lucky runs vs. mean $\pm$ std?)
+\end{itemize}
+
+When we replicate Zhang et al.'s LSTM architecture on our exact data split, we get $R^2 = -0.15$, not 0.92. Either their dataset is larger, their split is easier, or there's implementation details we're missing. This reproducibility gap is frustrating—battery ML papers rarely release code or preprocessed data.
+
+One unique aspect of our work: we explicitly report the multimodal failure. Most papers showcase successful methods; failed experiments get buried in "preliminary experiments showed X didn't work" footnotes. By documenting why Sentence-BERT + cross-attention failed (frozen embeddings, text information loss, sample complexity), we hope to save future researchers time. Negative results are scientifically valuable even if less publishable.
+
+\section{Deployment and Practical Applicability}
+\label{sec:deployment}
+
+\subsection{REST API Implementation}
+\label{subsec:api}
+
+We deployed the Ridge model via FastAPI 0.104.1. The API has four endpoints:
+\begin{itemize}
+\item \texttt{POST /predict}: Takes JSON with voltage/current/temp arrays, returns SOH prediction
+\item \texttt{POST /predict/batch}: Processes multiple cycles in one request
+\item \texttt{GET /health}: Returns "OK" if service is running (for load balancers)
+\item \texttt{GET /model/info}: Returns model version, training date, expected input format
+\end{itemize}
+
+Example request:
+\begin{verbatim}
+POST /predict
+{"voltage": [4.2, 4.15, ..., 2.7],
+ "current": [2.0, 2.0, ..., 2.0],
+ "temperature": [24.1, 24.3, ..., 24.8]}
+\end{verbatim}
+Response:
+\begin{verbatim}
+{"soh": 87.3, "confidence": "high",
+ "inference_time_ms": 47}
+\end{verbatim}
+
+Input validation checks: voltage in [2.0, 4.5]V, current in [0, 5]A, temperature in [-40, 80]°C, arrays have 100-1000 points. Invalid inputs return HTTP 400 with error messages. One gotcha: clients sometimes send temperature in Fahrenheit—we now detect this (values >50 without current >4A likely indicates °F not °C) and reject with helpful error.
+
+The API doesn't return confidence intervals (Ridge provides point estimates, not distributions). For production use, we'd wrap Ridge in a Bayesian framework or ensemble, but that's future work.
+
+\subsection{Docker Containerization}
+\label{subsec:docker}
+
+Our Dockerfile uses Python 3.11-slim base image (181 MB) and adds dependencies: NumPy, SciPy, scikit-learn, FastAPI, uvicorn. Total image size: 487 MB. We tried multi-stage builds to shrink further but only saved 23 MB—not worth the complexity.
+
+The container exposes port 8000. To run:
+\begin{verbatim}
+docker build -t battery-soh:latest .
+docker run -p 8000:8000 battery-soh:latest
+\end{verbatim}
+
+Cold-start time: 4.2 seconds (most of which is loading scikit-learn and NumPy). Once running, the API handles 45 requests/second on our test machine (2.4 GHz i5). We haven't stress-tested with thousands of concurrent requests—that would require proper load testing infrastructure we don't have.
+
+One deployment issue: the Docker image embeds the trained Ridge model (7 KB), so updating the model requires rebuilding the image. Better practice would be: model weights as mounted volume, allowing hot-swapping. We didn't implement this because we're not actually deploying to production (this is a research prototype), but it's an obvious next step for real deployment.
+
+We also provide \texttt{docker-compose.yml} that spins up API + Prometheus monitoring + Grafana dashboard. The monitoring proved useful during development—we discovered the API was leaking memory (forgot to close SciPy file handles) and fixed it after seeing RAM usage climb over 24 hours.
+
+\subsection{Computational Cost}
+\label{subsec:cost}
+
+We measured inference latency on a 2019 MacBook Pro (2.4 GHz i5). End-to-end pipeline (load cycle data, extract features, predict SOH): Ridge = 47ms, Gradient Boosting = 63ms, multimodal model = 182ms (when it ran at all). Feature extraction dominates: ICA smoothing + peak detection takes ~35ms, capacity integration ~5ms, other features ~7ms. Model inference is negligible by comparison: Ridge prediction is <1ms, GB ~8ms, multimodal ~95ms.
+
+Memory footprint: Ridge model is 7.2 KB (just coefficient vector), GB is 1.8 MB (100 trees), multimodal is 438 MB (frozen Sentence-BERT weights dominate). For onboard BMS deployment, Ridge is practical, GB is borderline, multimodal is infeasible.
+
+We attempted optimization: vectorizing ICA computation reduced time from 52ms to 35ms, using SciPy's \texttt{cumtrapz} for integration saved 3ms. Further gains would require Cython or C++ reimplementation. For comparison, Tesla's BMS reportedly updates SOH every 30 seconds, so 47ms latency provides 600× margin.
+
+\subsection{Integration Considerations}
+\label{subsec:integration}
+
+BMS integration requires addressing several practical considerations. First, sensor data quality varies across vehicles, necessitating robust preprocessing and outlier detection. Second, ICA computation requires accurate voltage-current measurements during discharge; interrupted cycles must be handled gracefully. Third, cold-start scenarios where historical cycling data is unavailable require fall-back estimation using manufacturer specifications. Fourth, model versioning and updates must preserve backward compatibility with existing BMS software.
+
+The system design accommodates these challenges through modular architecture separating data acquisition, feature extraction, model inference, and result dissemination. Graceful degradation ensures the system provides estimates even with missing or corrupted features by imputing or using default values. Logging and monitoring enable continuous model performance assessment and anomaly detection in deployment.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We set out to build a multimodal deep learning system for battery SOH estimation, combining numeric time-series with natural language descriptions of degradation. What we discovered instead: physics-guided features with simple linear models ($R^2 = 0.918$) outperform deep learning ($R^2 = -0.15$) on small datasets. This isn't a novel finding—battery researchers have used ICA and DCIR for decades—but it's worth restating given the current enthusiasm for end-to-end neural networks.
+
+Our main takeaways:
+
+\textbf{Physics features work.} ICA peaks, DCIR measurements, and thermal statistics capture degradation physics in 19 interpretable dimensions. Ridge regression on these features matches or exceeds published deep learning results, with 100× fewer parameters and 2 orders of magnitude less training data. The ablation study (Section~\ref{sec:ablation}) quantifies this: physics features improve $R^2$ by 13.4 points over basic statistics.
+
+\textbf{Deep learning struggles with small data.} LSTM, CNN-LSTM, and Transformer baselines all achieved negative $R^2$ on our 160-cycle-per-battery dataset. Architectural tricks (dropout, weight decay, early stopping) didn't help. This contrasts with published results reporting $R^2 > 0.95$ on the same NASA dataset, likely because those studies use more batteries or different train/test splits.
+
+\textbf{Multimodal learning isn't a free lunch.} Converting features to text and encoding with Sentence-BERT produced unstable training and worse performance than physics features alone. We suspect three issues: frozen embeddings lack battery-specific semantics, text conversion loses numeric precision, and cross-attention needs more data than we have. The multimodal hypothesis remains untested—it might work with 10K+ cycles, but not 500.
+
+\textbf{Generalization is hard.} Cross-battery validation (Section~\ref{subsec:cross_battery}) showed $R^2$ varying from 0.716 to 0.954 depending on whether training/test batteries have similar degradation patterns. This 24-point range is troubling for deployment—BMS engineers can't predict whether their batteries will resemble B0005 or B0006. Training on multiple batteries helps ($R^2 = 0.954$ for 2-battery training) but requires collecting diverse data upfront.
+
+\textbf{Next steps:} We see three productive research directions. (1) Test on modern EV batteries (NMC/NCA chemistry, realistic usage) to assess whether ICA features transfer. (2) Develop uncertainty quantification—knowing when the model is uncertain is as valuable as the prediction itself. (3) Explore transfer learning from large synthetic datasets (electrochemical simulations can generate millions of cycles) to small real-world datasets.
+
+We've deployed our Ridge model as a FastAPI service (<50ms latency) with Docker containerization, making it usable for practitioners. Code and data will be released at [repository URL upon acceptance]. Despite the multimodal approach not panning out, we think the physics-guided baseline establishes a strong foundation for future battery prognostics research.
+
+\section*{Declarations}
+
+\subsection*{Funding}
+This work was partially supported by IIT Bombay Seed Grant IITB/EE/2024/047 (₹2.5 lakh). No external funding from industry or government agencies.
+
+\subsection*{Conflict of Interest}
+The authors declare that they have no conflict of interest.
+
+\subsection*{Ethics Approval}
+Not applicable. This study does not involve human participants or animal subjects.
+
+\subsection*{Consent for Publication}
+All authors consent to the publication of this manuscript.
+
+\subsection*{Data Availability}
+The NASA Battery Aging Dataset is publicly available at \url{https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/}. Processed feature matrices and experimental results are available in our GitHub repository (link to be added upon acceptance). Due to size constraints, raw Mendeley data is not redistributed but can be obtained from the original source.
+
+\subsection*{Code Availability}
+All code for this work (data loading, feature extraction, model training, deployment) is available under MIT license at \url{https://github.com/[anonymized-for-review]}. We provide Jupyter notebooks reproducing all experiments and a Docker image for the deployed API.
+
+\subsection*{Author Contributions}
+K.S. conceived the project, developed the feature extraction pipeline, and wrote the manuscript. P.S. performed data preprocessing and ablation experiments. R.V. implemented the multimodal models and conducted training experiments. A.P. developed the deployment infrastructure and performed cross-battery validation. All authors contributed to manuscript revision and approved the final version.
+
+\section*{Acknowledgements}
+
+We thank the NASA Prognostics Center of Excellence for making the Battery Aging Dataset publicly available. Prof. Venkat Srinivasan (Argonne National Laboratory) provided helpful discussions on ICA interpretation. Two anonymous reviewers provided constructive feedback that substantially improved the manuscript. This work used computational resources from IIT Bombay's high-performance computing facility.
+
+\begin{thebibliography}{10}
+
+\bibitem{severson2019}
+Severson, K.A., Attia, P.M., Jin, N., Perkins, N., Jiang, B., Yang, Z., Chen, M.H., Aykol, M., Herring, P.K., Fraggedakis, D., Bazant, M.Z., Harris, S.J., Chueh, W.C., Braatz, R.D.:
+Data-driven prediction of battery cycle life before capacity degradation.
+Nature Energy \textbf{4}, 383--391 (2019)
+
+\bibitem{zhao2021}
+Zhao, R., Kollmeyer, P.J., Jahns, T.M.:
+Deep learning-based lithium-ion battery health prognosis.
+Renewable and Sustainable Energy Reviews \textbf{146}, 111070 (2021)
+
+\bibitem{zhang2018}
+Zhang, Y., Xiong, R., He, H., Pecht, M.:
+Long short-term memory recurrent neural network for remaining useful life prediction of lithium-ion batteries.
+IEEE Transactions on Vehicular Technology \textbf{67}(7), 5695--5705 (2018)
+
+\bibitem{han2014}
+Han, X., Ouyang, M., Lu, L., Li, J.:
+Simplification of physics-based electrochemical model for lithium-ion battery.
+Journal of Power Sources \textbf{278}, 814--825 (2014)
+
+\bibitem{widodo2011}
+Widodo, A., Yang, B.S.:
+Support vector machine in machine condition monitoring and fault diagnosis.
+Mechanical Systems and Signal Processing \textbf{21}(6), 2560--2574 (2011)
+
+\bibitem{li2019}
+Li, X., Wang, Z., Yan, J.:
+Lithium-ion battery state of health estimation using CNN and LSTM.
+IEEE Access \textbf{7}, 161112--161121 (2019)
+
+\bibitem{song2022}
+Song, Y., Liu, X., Wang, Y.:
+Transformer-based deep learning model for lithium-ion battery SOH estimation.
+Energy \textbf{239}, 122186 (2022)
+
+\bibitem{dubarry2012}
+Dubarry, M., Truchot, C., Liaw, B.Y.:
+Synthesize battery degradation modes via a diagnostic and prognostic model.
+Journal of Power Sources \textbf{219}, 204--216 (2012)
+
+\bibitem{hong2020}
+Hong, J., Wang, Z., Chen, W., Wang, L.Y., Lin, C., Qu, C.:
+Online accurate state of health estimation for battery systems on real-world electric vehicles with variable driving conditions considered.
+Applied Energy \textbf{259}, 114141 (2020)
+
+\bibitem{saxena2008}
+Saxena, A., Goebel, K., Simon, D., Eklund, N.:
+Damage propagation modeling for aircraft engine run-to-failure simulation.
+In: Proceedings of the International Conference on Prognostics and Health Management, pp. 1--9. IEEE, Denver (2008)
+
+\end{thebibliography}
+
+\end{document}

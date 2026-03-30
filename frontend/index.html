@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery SOH Predictor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 100%);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .soh-meter {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #10b981 0deg,
+                #10b981 calc(var(--soh) * 3.6deg),
+                #e5e7eb calc(var(--soh) * 3.6deg),
+                #e5e7eb 360deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .soh-meter::before {
+            content: '';
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+        }
+        .soh-value {
+            position: relative;
+            z-index: 10;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .input-group {
+            transition: all 0.3s ease;
+        }
+        .input-group:focus-within {
+            transform: translateY(-2px);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .status-excellent { color: #10b981; }
+        .status-good { color: #3b82f6; }
+        .status-moderate { color: #f59e0b; }
+        .status-poor { color: #ef4444; }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-battery-full text-4xl text-green-400 mr-3"></i>
+                <h1 class="text-4xl font-bold text-white">Battery SOH Predictor</h1>
+            </div>
+            <p class="text-gray-300">Predict Li-ion Battery State of Health using AI</p>
+        </header>
+
+        <!-- API Status -->
+        <div id="api-status" class="text-center mb-6">
+            <span class="inline-flex items-center px-4 py-2 rounded-full bg-gray-700 text-gray-300">
+                <i class="fas fa-circle text-yellow-400 mr-2 pulse"></i>
+                Checking API connection...
+            </span>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Input Form -->
+            <div class="card rounded-2xl shadow-2xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-sliders-h text-blue-500 mr-2"></i>
+                    Battery Features
+                </h2>
+
+                <form id="prediction-form" class="space-y-6">
+                    <!-- Voltage Features -->
+                    <div class="bg-blue-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-blue-800 mb-3">
+                            <i class="fas fa-bolt mr-2"></i>Voltage (V)
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Mean</label>
+                                <input type="number" step="0.01" name="voltage_mean" value="3.5" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Std Dev</label>
+                                <input type="number" step="0.01" name="voltage_std" value="0.3" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Min</label>
+                                <input type="number" step="0.01" name="voltage_min" value="2.7" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Max</label>
+                                <input type="number" step="0.01" name="voltage_max" value="4.2" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current & Capacity -->
+                    <div class="bg-green-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-green-800 mb-3">
+                            <i class="fas fa-charging-station mr-2"></i>Current & Capacity
+                        </h3>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Current Mean (A)</label>
+                                <input type="number" step="0.01" name="current_mean" value="1.5" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Current Std</label>
+                                <input type="number" step="0.01" name="current_std" value="0.2" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Capacity (Ah)</label>
+                                <input type="number" step="0.01" name="capacity" value="1.8" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-400">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Temperature -->
+                    <div class="bg-orange-50 rounded-xl p-4">
+                        <h3 class="font-semibold text-orange-800 mb-3">
+                            <i class="fas fa-thermometer-half mr-2"></i>Temperature (°C)
+                        </h3>
+                        <div class="grid grid-cols-4 gap-4">
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Mean</label>
+                                <input type="number" step="0.1" name="temp_mean" value="25.0" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-orange-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Max</label>
+                                <input type="number" step="0.1" name="temp_max" value="28.0" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-orange-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Delta</label>
+                                <input type="number" step="0.1" name="temp_delta" value="3.0" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-orange-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Std</label>
+                                <input type="number" step="0.1" name="temp_std" value="1.0" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-orange-400">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Features (Collapsible) -->
+                    <details class="bg-purple-50 rounded-xl p-4">
+                        <summary class="font-semibold text-purple-800 cursor-pointer">
+                            <i class="fas fa-cogs mr-2"></i>Advanced Features (ICA, DCIR)
+                        </summary>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">Discharge Time (s)</label>
+                                <input type="number" step="1" name="discharge_time" value="3600" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">DCIR (Ω)</label>
+                                <input type="number" step="0.001" name="dcir" value="0.05" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">ICA Peak Voltage</label>
+                                <input type="number" step="0.01" name="ica_peak_voltage" value="3.6" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">ICA Peak Magnitude</label>
+                                <input type="number" step="0.01" name="ica_peak_magnitude" value="0.5" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">ICA Mean</label>
+                                <input type="number" step="0.01" name="ica_mean" value="0.2" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-400">
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-sm text-gray-600 mb-1">ICA Std</label>
+                                <input type="number" step="0.01" name="ica_std" value="0.1" 
+                                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-400">
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="predict-btn"
+                        class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold rounded-xl 
+                               hover:from-blue-700 hover:to-blue-900 transform hover:scale-105 transition-all shadow-lg">
+                        <i class="fas fa-brain mr-2"></i>
+                        Predict SOH
+                    </button>
+                </form>
+
+                <!-- Preset Buttons -->
+                <div class="mt-6">
+                    <p class="text-sm text-gray-500 mb-2">Quick Presets:</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <button onclick="loadPreset('new')" class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-sm hover:bg-green-200">
+                            New Battery
+                        </button>
+                        <button onclick="loadPreset('good')" class="px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm hover:bg-blue-200">
+                            Good (85%)
+                        </button>
+                        <button onclick="loadPreset('moderate')" class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-lg text-sm hover:bg-yellow-200">
+                            Moderate (75%)
+                        </button>
+                        <button onclick="loadPreset('degraded')" class="px-3 py-1 bg-red-100 text-red-700 rounded-lg text-sm hover:bg-red-200">
+                            Degraded (65%)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="card rounded-2xl shadow-2xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-chart-pie text-green-500 mr-2"></i>
+                    Prediction Result
+                </h2>
+
+                <!-- SOH Meter -->
+                <div id="result-section" class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="soh-meter" style="--soh: 0">
+                            <div class="soh-value text-gray-400" id="soh-display">--%</div>
+                        </div>
+                    </div>
+
+                    <!-- Status Badge -->
+                    <div id="status-badge" class="mb-6">
+                        <span class="inline-flex items-center px-6 py-3 rounded-full bg-gray-100 text-gray-500 text-lg">
+                            <i class="fas fa-question-circle mr-2"></i>
+                            Waiting for prediction...
+                        </span>
+                    </div>
+
+                    <!-- Explanation -->
+                    <div id="explanation-box" class="bg-gray-50 rounded-xl p-4 text-left hidden">
+                        <h3 class="font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-info-circle text-blue-500 mr-2"></i>Analysis
+                        </h3>
+                        <p id="explanation-text" class="text-gray-600"></p>
+                    </div>
+
+                    <!-- Disposal & lab precautions (SOH-band) -->
+                    <div id="disposal-box" class="mt-4 hidden text-left rounded-xl border p-4">
+                        <h3 class="font-semibold mb-1 text-gray-800">
+                            <i class="fas fa-recycle mr-2 text-green-600"></i><span id="disposal-band-label">SOH band</span>
+                        </h3>
+                        <p id="disposal-summary" class="text-sm text-gray-700 mb-3"></p>
+                        <div id="low-soh-banner" class="hidden mb-3 rounded-lg bg-red-100 px-3 py-2 text-sm text-red-800">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            Low SOH (&lt;50%): use certified disposal and stricter lab safety.
+                        </div>
+                        <div class="grid gap-3 md:grid-cols-1">
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-600">Disposal methods</h4>
+                                <ul id="disposal-methods" class="mt-1 list-inside list-disc text-sm text-gray-700"></ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-600">Analysis precautions</h4>
+                                <ul id="disposal-analysis" class="mt-1 list-inside list-disc text-sm text-gray-700"></ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wide text-gray-600">Transport &amp; storage</h4>
+                                <ul id="disposal-transport" class="mt-1 list-inside list-disc text-sm text-gray-700"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metrics -->
+                    <div id="metrics-box" class="grid grid-cols-2 gap-4 mt-6 hidden">
+                        <div class="bg-blue-50 rounded-xl p-4">
+                            <p class="text-sm text-gray-500">Processing Time</p>
+                            <p id="processing-time" class="text-2xl font-bold text-blue-600">-- ms</p>
+                        </div>
+                        <div class="bg-green-50 rounded-xl p-4">
+                            <p class="text-sm text-gray-500">Confidence</p>
+                            <p id="confidence" class="text-2xl font-bold text-green-600">--%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History -->
+                <div class="mt-8">
+                    <h3 class="font-semibold text-gray-700 mb-3">
+                        <i class="fas fa-history text-gray-400 mr-2"></i>Recent Predictions
+                    </h3>
+                    <div id="history-list" class="space-y-2 max-h-40 overflow-y-auto">
+                        <p class="text-gray-400 text-sm">No predictions yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 text-gray-400">
+            <p>Battery SOH Prediction API | Built with FastAPI & PyTorch</p>
+            <p class="text-sm mt-1">
+                <a href="http://localhost:8000/docs" target="_blank" class="hover:text-white">
+                    <i class="fas fa-book mr-1"></i>API Docs
+                </a>
+                <span class="mx-2">|</span>
+                <a href="http://localhost:8000/model/info" target="_blank" class="hover:text-white">
+                    <i class="fas fa-info-circle mr-1"></i>Model Info
+                </a>
+                <span class="mx-2">|</span>
+                <a href="http://localhost:8000/disposal/ranges" target="_blank" class="hover:text-white">
+                    <i class="fas fa-recycle mr-1"></i>SOH disposal bands
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+        let predictionHistory = [];
+
+        // Check API status on load
+        async function checkAPIStatus() {
+            const statusEl = document.getElementById('api-status');
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                if (response.ok) {
+                    const data = await response.json();
+                    statusEl.innerHTML = `
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-green-600 text-white">
+                            <i class="fas fa-circle text-green-300 mr-2"></i>
+                            API Connected - Model ${data.model_loaded ? 'Loaded' : 'Not Loaded'}
+                        </span>
+                    `;
+                } else {
+                    throw new Error('API not healthy');
+                }
+            } catch (error) {
+                statusEl.innerHTML = `
+                    <span class="inline-flex items-center px-4 py-2 rounded-full bg-red-600 text-white">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        API Offline - Start server: uvicorn api.main:app --port 8000
+                    </span>
+                `;
+            }
+        }
+
+        // Form submission
+        document.getElementById('prediction-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btn = document.getElementById('predict-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Predicting...';
+            btn.disabled = true;
+
+            const formData = new FormData(e.target);
+            const features = {};
+            
+            formData.forEach((value, key) => {
+                features[key] = parseFloat(value);
+            });
+
+            // Calculate voltage_range
+            features.voltage_range = features.voltage_max - features.voltage_min;
+
+            try {
+                const response = await fetch(`${API_URL}/predict`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        features: features,
+                        include_explanation: true
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    displayResult(result);
+                    addToHistory(result);
+                } else {
+                    const error = await response.json();
+                    alert(`Error: ${error.detail}`);
+                }
+            } catch (error) {
+                alert(`Connection error: ${error.message}\nMake sure the API server is running.`);
+            }
+
+            btn.innerHTML = '<i class="fas fa-brain mr-2"></i>Predict SOH';
+            btn.disabled = false;
+        });
+
+        function displayResult(result) {
+            const soh = result.soh;
+            
+            // Update SOH meter
+            const meter = document.querySelector('.soh-meter');
+            meter.style.setProperty('--soh', soh);
+            
+            const display = document.getElementById('soh-display');
+            display.textContent = `${soh.toFixed(1)}%`;
+            
+            // Color based on SOH
+            let statusClass, statusText, statusIcon, bgColor;
+            if (soh >= 90) {
+                statusClass = 'status-excellent';
+                statusText = 'Excellent';
+                statusIcon = 'fa-check-circle';
+                bgColor = 'bg-green-100 text-green-700';
+                display.className = 'soh-value text-green-500';
+            } else if (soh >= 80) {
+                statusClass = 'status-good';
+                statusText = 'Good';
+                statusIcon = 'fa-thumbs-up';
+                bgColor = 'bg-blue-100 text-blue-700';
+                display.className = 'soh-value text-blue-500';
+            } else if (soh >= 70) {
+                statusClass = 'status-moderate';
+                statusText = 'Moderate';
+                statusIcon = 'fa-exclamation-triangle';
+                bgColor = 'bg-yellow-100 text-yellow-700';
+                display.className = 'soh-value text-yellow-500';
+            } else {
+                statusClass = 'status-poor';
+                statusText = 'Poor - Replace Soon';
+                statusIcon = 'fa-times-circle';
+                bgColor = 'bg-red-100 text-red-700';
+                display.className = 'soh-value text-red-500';
+            }
+
+            // Update status badge
+            document.getElementById('status-badge').innerHTML = `
+                <span class="inline-flex items-center px-6 py-3 rounded-full ${bgColor} text-lg">
+                    <i class="fas ${statusIcon} mr-2"></i>
+                    ${statusText}
+                </span>
+            `;
+
+            // Update explanation
+            if (result.explanation) {
+                document.getElementById('explanation-box').classList.remove('hidden');
+                document.getElementById('explanation-text').textContent = result.explanation;
+            }
+
+            // Disposal & analysis precautions (from API)
+            const dg = result.disposal_guidance;
+            if (dg) {
+                const dbox = document.getElementById('disposal-box');
+                dbox.classList.remove('hidden');
+                dbox.className = dg.is_low_soh
+                    ? 'mt-4 text-left rounded-xl border border-red-300 bg-red-50 p-4'
+                    : 'mt-4 text-left rounded-xl border border-gray-200 bg-slate-50 p-4';
+                document.getElementById('disposal-band-label').textContent = dg.label || 'SOH band';
+                document.getElementById('disposal-summary').textContent = dg.summary || '';
+                const lowBanner = document.getElementById('low-soh-banner');
+                if (dg.is_low_soh) {
+                    lowBanner.classList.remove('hidden');
+                } else {
+                    lowBanner.classList.add('hidden');
+                }
+                const fillList = (id, items) => {
+                    const el = document.getElementById(id);
+                    el.innerHTML = (items || []).map((t) => `<li>${t}</li>`).join('');
+                };
+                fillList('disposal-methods', dg.disposal_methods);
+                fillList('disposal-analysis', dg.analysis_precautions);
+                fillList('disposal-transport', dg.transport_storage_precautions);
+            } else {
+                const dbox = document.getElementById('disposal-box');
+                dbox.className = 'mt-4 hidden text-left rounded-xl border border-gray-200 bg-slate-50 p-4';
+            }
+
+            // Update metrics
+            document.getElementById('metrics-box').classList.remove('hidden');
+            document.getElementById('processing-time').textContent = `${result.processing_time_ms.toFixed(1)} ms`;
+            document.getElementById('confidence').textContent = result.confidence ? `${(result.confidence * 100).toFixed(0)}%` : 'N/A';
+        }
+
+        function addToHistory(result) {
+            predictionHistory.unshift({
+                soh: result.soh,
+                time: new Date().toLocaleTimeString()
+            });
+
+            if (predictionHistory.length > 5) {
+                predictionHistory.pop();
+            }
+
+            const historyList = document.getElementById('history-list');
+            historyList.innerHTML = predictionHistory.map((item, i) => `
+                <div class="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                    <span class="text-sm text-gray-500">${item.time}</span>
+                    <span class="font-semibold ${item.soh >= 80 ? 'text-green-600' : item.soh >= 70 ? 'text-yellow-600' : 'text-red-600'}">
+                        ${item.soh.toFixed(1)}%
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        // Preset values
+        const presets = {
+            new: {
+                voltage_mean: 3.7, voltage_std: 0.25, voltage_min: 3.0, voltage_max: 4.2,
+                current_mean: 2.0, current_std: 0.1, capacity: 2.0,
+                temp_mean: 24, temp_max: 26, temp_delta: 2, temp_std: 0.5,
+                discharge_time: 3600, dcir: 0.03,
+                ica_peak_voltage: 3.7, ica_peak_magnitude: 0.8, ica_mean: 0.4, ica_std: 0.15
+            },
+            good: {
+                voltage_mean: 3.6, voltage_std: 0.28, voltage_min: 2.9, voltage_max: 4.2,
+                current_mean: 1.8, current_std: 0.15, capacity: 1.7,
+                temp_mean: 25, temp_max: 28, temp_delta: 3, temp_std: 0.8,
+                discharge_time: 3400, dcir: 0.05,
+                ica_peak_voltage: 3.6, ica_peak_magnitude: 0.6, ica_mean: 0.3, ica_std: 0.12
+            },
+            moderate: {
+                voltage_mean: 3.5, voltage_std: 0.3, voltage_min: 2.8, voltage_max: 4.2,
+                current_mean: 1.5, current_std: 0.2, capacity: 1.5,
+                temp_mean: 26, temp_max: 30, temp_delta: 4, temp_std: 1.2,
+                discharge_time: 3000, dcir: 0.08,
+                ica_peak_voltage: 3.55, ica_peak_magnitude: 0.4, ica_mean: 0.25, ica_std: 0.1
+            },
+            degraded: {
+                voltage_mean: 3.4, voltage_std: 0.35, voltage_min: 2.7, voltage_max: 4.1,
+                current_mean: 1.2, current_std: 0.25, capacity: 1.3,
+                temp_mean: 28, temp_max: 34, temp_delta: 6, temp_std: 1.8,
+                discharge_time: 2600, dcir: 0.12,
+                ica_peak_voltage: 3.5, ica_peak_magnitude: 0.25, ica_mean: 0.15, ica_std: 0.08
+            }
+        };
+
+        function loadPreset(type) {
+            const preset = presets[type];
+            for (const [key, value] of Object.entries(preset)) {
+                const input = document.querySelector(`input[name="${key}"]`);
+                if (input) input.value = value;
+            }
+        }
+
+        // Initialize
+        checkAPIStatus();
+        setInterval(checkAPIStatus, 30000); // Check every 30 seconds
+    </script>
+</body>
+</html>

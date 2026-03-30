@@ -1,0 +1,929 @@
+battery_id,cycle_number,soh,soh_text,capacity_text,ica_text,resistance_text,temperature_text,full_description,diagnosis
+B0005,0,100.80760884947752,Battery shows excellent health with SOH at 100.8%.,Minimal capacity fade observed.,ICA peak position stable at 3.27V. ICA peak magnitude remains strong at 35.936.,Elevated internal resistance at 0.1073Ω suggests SEI layer growth.,High temperature variation (ΔT=14.6°C) may accelerate degradation.,"Battery is healthy at 100.8% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.27V. ICA peak magnitude remains strong at 35.936.
+Elevated internal resistance at 0.1073Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.6°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,1,100.25590968770092,Battery shows excellent health with SOH at 100.3%.,Minimal capacity fade observed.,"ICA peak position stable at 3.30V. Weak ICA peak magnitude at 16.138, significant capacity loss indicated.",Elevated internal resistance at 0.1041Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 100.3% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.30V. Weak ICA peak magnitude at 16.138, significant capacity loss indicated.
+Elevated internal resistance at 0.1041Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,2,99.65979925247198,Battery shows excellent health with SOH at 99.7%.,Minimal capacity fade observed.,"ICA peak position stable at 3.30V. ICA peak magnitude reduced to 25.756, suggesting active material loss.",Elevated internal resistance at 0.1029Ω suggests SEI layer growth.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 99.7% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.30V. ICA peak magnitude reduced to 25.756, suggesting active material loss.
+Elevated internal resistance at 0.1029Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,3,99.65509323788876,Battery shows excellent health with SOH at 99.7%.,Minimal capacity fade observed.,"ICA peak position stable at 3.24V. Very weak ICA signal at 12.589, severe degradation evident.",Elevated internal resistance at 0.1025Ω suggests SEI layer growth.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 99.7% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.24V. Very weak ICA signal at 12.589, severe degradation evident.
+Elevated internal resistance at 0.1025Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,4,99.62158897246084,Battery shows excellent health with SOH at 99.6%.,Minimal capacity fade observed.,"ICA peak position stable at 3.31V. Very weak ICA signal at 12.330, severe degradation evident.",Elevated internal resistance at 0.1018Ω suggests SEI layer growth.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 99.6% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.31V. Very weak ICA signal at 12.330, severe degradation evident.
+Elevated internal resistance at 0.1018Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,5,99.676766205354,Battery shows excellent health with SOH at 99.7%.,Minimal capacity fade observed.,"ICA peak position stable at 3.30V. Very weak ICA signal at 10.824, severe degradation evident.",Elevated internal resistance at 0.1016Ω suggests SEI layer growth.,High temperature variation (ΔT=14.2°C) may accelerate degradation.,"Battery is healthy at 99.7% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.30V. Very weak ICA signal at 10.824, severe degradation evident.
+Elevated internal resistance at 0.1016Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.2°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,6,99.64877352944656,Battery shows excellent health with SOH at 99.6%.,Minimal capacity fade observed.,"ICA peak position stable at 3.29V. Weak ICA peak magnitude at 16.362, significant capacity loss indicated.",Elevated internal resistance at 0.1008Ω suggests SEI layer growth.,High temperature variation (ΔT=14.2°C) may accelerate degradation.,"Battery is healthy at 99.6% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.29V. Weak ICA peak magnitude at 16.362, significant capacity loss indicated.
+Elevated internal resistance at 0.1008Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.2°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,7,99.13892996732471,Battery shows excellent health with SOH at 99.1%.,Minimal capacity fade observed.,"ICA peak position stable at 3.31V. Very weak ICA signal at 12.776, severe degradation evident.",Elevated internal resistance at 0.1004Ω suggests SEI layer growth.,High temperature variation (ΔT=13.8°C) may accelerate degradation.,"Battery is healthy at 99.1% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.31V. Very weak ICA signal at 12.776, severe degradation evident.
+Elevated internal resistance at 0.1004Ω suggests SEI layer growth.
+High temperature variation (ΔT=13.8°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,8,99.0855562758486,Battery shows excellent health with SOH at 99.1%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.21V (Δ=0.052V). ICA peak magnitude reduced to 22.276, suggesting active material loss.",Internal resistance at 0.0998Ω is within normal range.,High temperature variation (ΔT=13.9°C) may accelerate degradation.,"Battery is healthy at 99.1% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.21V (Δ=0.052V). ICA peak magnitude reduced to 22.276, suggesting active material loss.
+Internal resistance at 0.0998Ω is within normal range.
+High temperature variation (ΔT=13.9°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,9,99.07683650834832,Battery shows excellent health with SOH at 99.1%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.21V (Δ=0.058V). Weak ICA peak magnitude at 20.412, significant capacity loss indicated.",Elevated internal resistance at 0.1004Ω suggests SEI layer growth.,High temperature variation (ΔT=14.0°C) may accelerate degradation.,"Battery is healthy at 99.1% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.21V (Δ=0.058V). Weak ICA peak magnitude at 20.412, significant capacity loss indicated.
+Elevated internal resistance at 0.1004Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.0°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,10,99.07717774099628,Battery shows excellent health with SOH at 99.1%.,Minimal capacity fade observed.,"ICA peak position stable at 3.27V. Weak ICA peak magnitude at 20.869, significant capacity loss indicated.",Elevated internal resistance at 0.1002Ω suggests SEI layer growth.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 99.1% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.27V. Weak ICA peak magnitude at 20.869, significant capacity loss indicated.
+Elevated internal resistance at 0.1002Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,11,98.51149922373634,Battery shows excellent health with SOH at 98.5%.,Minimal capacity fade observed.,"ICA peak shows moderate shift to 3.15V (Δ=0.119V), indicating structural changes. Very weak ICA signal at 8.251, severe degradation evident.",Internal resistance at 0.0994Ω is within normal range.,High temperature variation (ΔT=13.8°C) may accelerate degradation.,"Battery is healthy at 98.5% SOH.
+Minimal capacity fade observed.
+ICA peak shows moderate shift to 3.15V (Δ=0.119V), indicating structural changes. Very weak ICA signal at 8.251, severe degradation evident.
+Internal resistance at 0.0994Ω is within normal range.
+High temperature variation (ΔT=13.8°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,12,98.48707619482518,Battery shows excellent health with SOH at 98.5%.,Minimal capacity fade observed.,ICA peak position stable at 3.27V. ICA peak magnitude remains strong at 66.619.,Internal resistance at 0.0994Ω is within normal range.,High temperature variation (ΔT=13.8°C) may accelerate degradation.,"Battery is healthy at 98.5% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.27V. ICA peak magnitude remains strong at 66.619.
+Internal resistance at 0.0994Ω is within normal range.
+High temperature variation (ΔT=13.8°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,13,98.47015265835148,Battery shows excellent health with SOH at 98.5%.,Minimal capacity fade observed.,ICA peak shifted slightly to 3.19V (Δ=0.074V). ICA peak magnitude remains strong at 40.689.,Internal resistance at 0.0997Ω is within normal range.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 98.5% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.19V (Δ=0.074V). ICA peak magnitude remains strong at 40.689.
+Internal resistance at 0.0997Ω is within normal range.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,14,97.88140357167909,Battery shows excellent health with SOH at 97.9%.,Minimal capacity fade observed.,ICA peak shifted slightly to 3.19V (Δ=0.076V). ICA peak magnitude remains strong at 201.169.,Internal resistance at 0.0996Ω is within normal range.,High temperature variation (ΔT=13.7°C) may accelerate degradation.,"Battery is healthy at 97.9% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.19V (Δ=0.076V). ICA peak magnitude remains strong at 201.169.
+Internal resistance at 0.0996Ω is within normal range.
+High temperature variation (ΔT=13.7°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,15,97.8547365674569,Battery shows excellent health with SOH at 97.9%.,Minimal capacity fade observed.,ICA peak position stable at 3.28V. ICA peak magnitude remains strong at 282.038.,Internal resistance at 0.0997Ω is within normal range.,High temperature variation (ΔT=13.9°C) may accelerate degradation.,"Battery is healthy at 97.9% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.28V. ICA peak magnitude remains strong at 282.038.
+Internal resistance at 0.0997Ω is within normal range.
+High temperature variation (ΔT=13.9°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,16,97.88039886599034,Battery shows excellent health with SOH at 97.9%.,Minimal capacity fade observed.,"ICA peak position stable at 3.23V. Very weak ICA signal at 7.984, severe degradation evident.",Internal resistance at 0.0995Ω is within normal range.,High temperature variation (ΔT=13.9°C) may accelerate degradation.,"Battery is healthy at 97.9% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.23V. Very weak ICA signal at 7.984, severe degradation evident.
+Internal resistance at 0.0995Ω is within normal range.
+High temperature variation (ΔT=13.9°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,17,97.90694152673842,Battery shows excellent health with SOH at 97.9%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.20V (Δ=0.065V). Very weak ICA signal at 12.181, severe degradation evident.",Internal resistance at 0.0997Ω is within normal range.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 97.9% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.20V (Δ=0.065V). Very weak ICA signal at 12.181, severe degradation evident.
+Internal resistance at 0.0997Ω is within normal range.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,18,97.89115702988909,Battery shows excellent health with SOH at 97.9%.,Minimal capacity fade observed.,"ICA peak position stable at 3.22V. Very weak ICA signal at 9.239, severe degradation evident.",Internal resistance at 0.0997Ω is within normal range.,High temperature variation (ΔT=14.2°C) may accelerate degradation.,"Battery is healthy at 97.9% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.22V. Very weak ICA signal at 9.239, severe degradation evident.
+Internal resistance at 0.0997Ω is within normal range.
+High temperature variation (ΔT=14.2°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,19,100.29385168145046,Battery shows excellent health with SOH at 100.3%.,Minimal capacity fade observed.,"Significant ICA peak shift to 3.49V (Δ=0.223V), major electrode degradation likely. Very weak ICA signal at 6.226, severe degradation evident.",Internal resistance at 0.0996Ω is within normal range.,High temperature variation (ΔT=13.9°C) may accelerate degradation.,"Battery is healthy at 100.3% SOH.
+Minimal capacity fade observed.
+Significant ICA peak shift to 3.49V (Δ=0.223V), major electrode degradation likely. Very weak ICA signal at 6.226, severe degradation evident.
+Internal resistance at 0.0996Ω is within normal range.
+High temperature variation (ΔT=13.9°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,20,100.31510023136138,Battery shows excellent health with SOH at 100.3%.,Minimal capacity fade observed.,"ICA peak shows moderate shift to 3.16V (Δ=0.110V), indicating structural changes. Weak ICA peak magnitude at 19.678, significant capacity loss indicated.",Internal resistance at 0.0990Ω is within normal range.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 100.3% SOH.
+Minimal capacity fade observed.
+ICA peak shows moderate shift to 3.16V (Δ=0.110V), indicating structural changes. Weak ICA peak magnitude at 19.678, significant capacity loss indicated.
+Internal resistance at 0.0990Ω is within normal range.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,21,99.70477213786164,Battery shows excellent health with SOH at 99.7%.,Minimal capacity fade observed.,"ICA peak shows moderate shift to 3.15V (Δ=0.121V), indicating structural changes. Very weak ICA signal at 13.400, severe degradation evident.",Internal resistance at 0.0993Ω is within normal range.,High temperature variation (ΔT=13.9°C) may accelerate degradation.,"Battery is healthy at 99.7% SOH.
+Minimal capacity fade observed.
+ICA peak shows moderate shift to 3.15V (Δ=0.121V), indicating structural changes. Very weak ICA signal at 13.400, severe degradation evident.
+Internal resistance at 0.0993Ω is within normal range.
+High temperature variation (ΔT=13.9°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,22,99.14023083743788,Battery shows excellent health with SOH at 99.1%.,Minimal capacity fade observed.,"ICA peak position stable at 3.24V. Very weak ICA signal at 9.736, severe degradation evident.",Internal resistance at 0.0995Ω is within normal range.,High temperature variation (ΔT=13.9°C) may accelerate degradation.,"Battery is healthy at 99.1% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.24V. Very weak ICA signal at 9.736, severe degradation evident.
+Internal resistance at 0.0995Ω is within normal range.
+High temperature variation (ΔT=13.9°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,23,99.10400696359154,Battery shows excellent health with SOH at 99.1%.,Minimal capacity fade observed.,"ICA peak shows moderate shift to 3.13V (Δ=0.134V), indicating structural changes. ICA peak magnitude remains strong at 43.239.",Internal resistance at 0.0996Ω is within normal range.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 99.1% SOH.
+Minimal capacity fade observed.
+ICA peak shows moderate shift to 3.13V (Δ=0.134V), indicating structural changes. ICA peak magnitude remains strong at 43.239.
+Internal resistance at 0.0996Ω is within normal range.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,24,99.12941188644577,Battery shows excellent health with SOH at 99.1%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.21V (Δ=0.061V). Very weak ICA signal at 12.742, severe degradation evident.",Internal resistance at 0.0996Ω is within normal range.,High temperature variation (ΔT=14.2°C) may accelerate degradation.,"Battery is healthy at 99.1% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.21V (Δ=0.061V). Very weak ICA signal at 12.742, severe degradation evident.
+Internal resistance at 0.0996Ω is within normal range.
+High temperature variation (ΔT=14.2°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,25,98.50222430381577,Battery shows excellent health with SOH at 98.5%.,Minimal capacity fade observed.,"ICA peak position stable at 3.27V. Very weak ICA signal at 6.637, severe degradation evident.",Internal resistance at 0.0997Ω is within normal range.,High temperature variation (ΔT=14.0°C) may accelerate degradation.,"Battery is healthy at 98.5% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.27V. Very weak ICA signal at 6.637, severe degradation evident.
+Internal resistance at 0.0997Ω is within normal range.
+High temperature variation (ΔT=14.0°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,26,98.54230145652885,Battery shows excellent health with SOH at 98.5%.,Minimal capacity fade observed.,"Significant ICA peak shift to 3.50V (Δ=0.232V), major electrode degradation likely. Very weak ICA signal at 5.887, severe degradation evident.",Elevated internal resistance at 0.1000Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 98.5% SOH.
+Minimal capacity fade observed.
+Significant ICA peak shift to 3.50V (Δ=0.232V), major electrode degradation likely. Very weak ICA signal at 5.887, severe degradation evident.
+Elevated internal resistance at 0.1000Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,27,98.49887187571215,Battery shows excellent health with SOH at 98.5%.,Minimal capacity fade observed.,"ICA peak position stable at 3.22V. Very weak ICA signal at 7.645, severe degradation evident.",Elevated internal resistance at 0.1001Ω suggests SEI layer growth.,High temperature variation (ΔT=14.4°C) may accelerate degradation.,"Battery is healthy at 98.5% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.22V. Very weak ICA signal at 7.645, severe degradation evident.
+Elevated internal resistance at 0.1001Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.4°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,28,97.89050762402483,Battery shows excellent health with SOH at 97.9%.,Minimal capacity fade observed.,ICA peak shifted slightly to 3.19V (Δ=0.077V). ICA peak magnitude remains strong at 36.595.,Elevated internal resistance at 0.1001Ω suggests SEI layer growth.,High temperature variation (ΔT=14.2°C) may accelerate degradation.,"Battery is healthy at 97.9% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.19V (Δ=0.077V). ICA peak magnitude remains strong at 36.595.
+Elevated internal resistance at 0.1001Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.2°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,29,97.96171552529296,Battery shows excellent health with SOH at 98.0%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.19V (Δ=0.073V). Weak ICA peak magnitude at 14.813, significant capacity loss indicated.",Elevated internal resistance at 0.1002Ω suggests SEI layer growth.,High temperature variation (ΔT=14.4°C) may accelerate degradation.,"Battery is healthy at 98.0% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.19V (Δ=0.073V). Weak ICA peak magnitude at 14.813, significant capacity loss indicated.
+Elevated internal resistance at 0.1002Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.4°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,30,100.55321959197042,Battery shows excellent health with SOH at 100.6%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.21V (Δ=0.056V). Very weak ICA signal at 12.127, severe degradation evident.",Internal resistance at 0.0973Ω is within normal range.,High temperature variation (ΔT=14.7°C) may accelerate degradation.,"Battery is healthy at 100.6% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.21V (Δ=0.056V). Very weak ICA signal at 12.127, severe degradation evident.
+Internal resistance at 0.0973Ω is within normal range.
+High temperature variation (ΔT=14.7°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,31,99.4075559707278,Battery shows excellent health with SOH at 99.4%.,Minimal capacity fade observed.,"Significant ICA peak shift to 3.49V (Δ=0.227V), major electrode degradation likely. Very weak ICA signal at 6.510, severe degradation evident.",Elevated internal resistance at 0.1720Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 99.4% SOH.
+Minimal capacity fade observed.
+Significant ICA peak shift to 3.49V (Δ=0.227V), major electrode degradation likely. Very weak ICA signal at 6.510, severe degradation evident.
+Elevated internal resistance at 0.1720Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,32,98.82112827769664,Battery shows excellent health with SOH at 98.8%.,Minimal capacity fade observed.,"ICA peak position stable at 3.28V. Very weak ICA signal at 7.774, severe degradation evident.",Elevated internal resistance at 0.1679Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 98.8% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.28V. Very weak ICA signal at 7.774, severe degradation evident.
+Elevated internal resistance at 0.1679Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,33,98.24575563933595,Battery shows excellent health with SOH at 98.2%.,Minimal capacity fade observed.,ICA peak position stable at 3.30V. ICA peak magnitude remains strong at 198.554.,Elevated internal resistance at 0.1574Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 98.2% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.30V. ICA peak magnitude remains strong at 198.554.
+Elevated internal resistance at 0.1574Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,34,97.99065016377769,Battery shows excellent health with SOH at 98.0%.,Minimal capacity fade observed.,"Significant ICA peak shift to 3.49V (Δ=0.222V), major electrode degradation likely. Very weak ICA signal at 6.406, severe degradation evident.",Elevated internal resistance at 0.1864Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 98.0% SOH.
+Minimal capacity fade observed.
+Significant ICA peak shift to 3.49V (Δ=0.222V), major electrode degradation likely. Very weak ICA signal at 6.406, severe degradation evident.
+Elevated internal resistance at 0.1864Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,35,97.7065060215613,Battery shows excellent health with SOH at 97.7%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.32V (Δ=0.050V). ICA peak magnitude reduced to 27.345, suggesting active material loss.",Elevated internal resistance at 0.1693Ω suggests SEI layer growth.,High temperature variation (ΔT=14.4°C) may accelerate degradation.,"Battery is healthy at 97.7% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.32V (Δ=0.050V). ICA peak magnitude reduced to 27.345, suggesting active material loss.
+Elevated internal resistance at 0.1693Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.4°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,36,97.1127969487904,Battery shows excellent health with SOH at 97.1%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.17V (Δ=0.093V). Weak ICA peak magnitude at 21.369, significant capacity loss indicated.",Elevated internal resistance at 0.1661Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 97.1% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.17V (Δ=0.093V). Weak ICA peak magnitude at 21.369, significant capacity loss indicated.
+Elevated internal resistance at 0.1661Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,37,96.81304988059904,Battery shows excellent health with SOH at 96.8%.,Minimal capacity fade observed.,ICA peak shifted slightly to 3.32V (Δ=0.058V). ICA peak magnitude remains strong at 99.875.,Elevated internal resistance at 0.1715Ω suggests SEI layer growth.,High temperature variation (ΔT=14.5°C) may accelerate degradation.,"Battery is healthy at 96.8% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.32V (Δ=0.058V). ICA peak magnitude remains strong at 99.875.
+Elevated internal resistance at 0.1715Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.5°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,38,96.2760572978822,Battery shows excellent health with SOH at 96.3%.,Minimal capacity fade observed.,ICA peak shifted slightly to 3.36V (Δ=0.092V). ICA peak magnitude remains strong at 175.950.,Internal resistance at 0.0960Ω is within normal range.,High temperature variation (ΔT=14.5°C) may accelerate degradation.,"Battery is healthy at 96.3% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.36V (Δ=0.092V). ICA peak magnitude remains strong at 175.950.
+Internal resistance at 0.0960Ω is within normal range.
+High temperature variation (ΔT=14.5°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,39,96.27627663137304,Battery shows excellent health with SOH at 96.3%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.32V (Δ=0.050V). Very weak ICA signal at 10.939, severe degradation evident.",Elevated internal resistance at 0.1842Ω suggests SEI layer growth.,High temperature variation (ΔT=14.9°C) may accelerate degradation.,"Battery is healthy at 96.3% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.32V (Δ=0.050V). Very weak ICA signal at 10.939, severe degradation evident.
+Elevated internal resistance at 0.1842Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.9°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,40,95.99578118843348,Battery shows excellent health with SOH at 96.0%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.19V (Δ=0.074V). Very weak ICA signal at 10.398, severe degradation evident.",Internal resistance at 0.0951Ω is within normal range.,High temperature variation (ΔT=14.7°C) may accelerate degradation.,"Battery is healthy at 96.0% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.19V (Δ=0.074V). Very weak ICA signal at 10.398, severe degradation evident.
+Internal resistance at 0.0951Ω is within normal range.
+High temperature variation (ΔT=14.7°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,41,95.69403287907453,Battery shows excellent health with SOH at 95.7%.,"Slight capacity fade detected, 5.1% reduction from initial.","ICA peak shifted slightly to 3.32V (Δ=0.051V). Very weak ICA signal at 10.806, severe degradation evident.",Internal resistance at 0.0949Ω is within normal range.,High temperature variation (ΔT=14.6°C) may accelerate degradation.,"Battery is healthy at 95.7% SOH.
+Slight capacity fade detected, 5.1% reduction from initial.
+ICA peak shifted slightly to 3.32V (Δ=0.051V). Very weak ICA signal at 10.806, severe degradation evident.
+Internal resistance at 0.0949Ω is within normal range.
+High temperature variation (ΔT=14.6°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,42,95.98194451474583,Battery shows excellent health with SOH at 96.0%.,Minimal capacity fade observed.,"ICA peak position stable at 3.30V. Very weak ICA signal at 6.988, severe degradation evident.",Elevated internal resistance at 0.1016Ω suggests SEI layer growth.,High temperature variation (ΔT=14.5°C) may accelerate degradation.,"Battery is healthy at 96.0% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.30V. Very weak ICA signal at 6.988, severe degradation evident.
+Elevated internal resistance at 0.1016Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.5°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,43,95.7132165549653,Battery shows excellent health with SOH at 95.7%.,"Slight capacity fade detected, 5.1% reduction from initial.","ICA peak shows moderate shift to 3.37V (Δ=0.105V), indicating structural changes. ICA peak magnitude remains strong at 71.204.",Internal resistance at 0.0956Ω is within normal range.,High temperature variation (ΔT=14.4°C) may accelerate degradation.,"Battery is healthy at 95.7% SOH.
+Slight capacity fade detected, 5.1% reduction from initial.
+ICA peak shows moderate shift to 3.37V (Δ=0.105V), indicating structural changes. ICA peak magnitude remains strong at 71.204.
+Internal resistance at 0.0956Ω is within normal range.
+High temperature variation (ΔT=14.4°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,44,95.11928805425102,Battery shows excellent health with SOH at 95.1%.,"Slight capacity fade detected, 5.6% reduction from initial.","ICA peak shows moderate shift to 3.38V (Δ=0.115V), indicating structural changes. ICA peak magnitude remains strong at 28.947.",Elevated internal resistance at 0.1738Ω suggests SEI layer growth.,High temperature variation (ΔT=14.8°C) may accelerate degradation.,"Battery is healthy at 95.1% SOH.
+Slight capacity fade detected, 5.6% reduction from initial.
+ICA peak shows moderate shift to 3.38V (Δ=0.115V), indicating structural changes. ICA peak magnitude remains strong at 28.947.
+Elevated internal resistance at 0.1738Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.8°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,45,94.58275432725996,Battery is in good condition with SOH at 94.6%.,"Slight capacity fade detected, 6.2% reduction from initial.","ICA peak shows moderate shift to 3.39V (Δ=0.126V), indicating structural changes. ICA peak magnitude reduced to 26.245, suggesting active material loss.",Elevated internal resistance at 0.1705Ω suggests SEI layer growth.,High temperature variation (ΔT=14.7°C) may accelerate degradation.,"Battery is healthy at 94.6% SOH.
+Slight capacity fade detected, 6.2% reduction from initial.
+ICA peak shows moderate shift to 3.39V (Δ=0.126V), indicating structural changes. ICA peak magnitude reduced to 26.245, suggesting active material loss.
+Elevated internal resistance at 0.1705Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.7°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,46,94.27008009570126,Battery is in good condition with SOH at 94.3%.,"Slight capacity fade detected, 6.5% reduction from initial.",ICA peak shifted slightly to 3.35V (Δ=0.087V). ICA peak magnitude remains strong at 304.991.,Elevated internal resistance at 0.1755Ω suggests SEI layer growth.,High temperature variation (ΔT=14.9°C) may accelerate degradation.,"Battery is healthy at 94.3% SOH.
+Slight capacity fade detected, 6.5% reduction from initial.
+ICA peak shifted slightly to 3.35V (Δ=0.087V). ICA peak magnitude remains strong at 304.991.
+Elevated internal resistance at 0.1755Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.9°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,47,97.39411432859944,Battery shows excellent health with SOH at 97.4%.,Minimal capacity fade observed.,"Significant ICA peak shift to 4.19V (Δ=0.924V), major electrode degradation likely. ICA peak magnitude remains strong at 24164.124.",Internal resistance at 0.0926Ω is within normal range.,High temperature variation (ΔT=14.1°C) may accelerate degradation.,"Battery is healthy at 97.4% SOH.
+Minimal capacity fade observed.
+Significant ICA peak shift to 4.19V (Δ=0.924V), major electrode degradation likely. ICA peak magnitude remains strong at 24164.124.
+Internal resistance at 0.0926Ω is within normal range.
+High temperature variation (ΔT=14.1°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,48,96.82749231246358,Battery shows excellent health with SOH at 96.8%.,Minimal capacity fade observed.,ICA peak position stable at 3.31V. ICA peak magnitude remains strong at 34.284.,Internal resistance at 0.0932Ω is within normal range.,High temperature variation (ΔT=14.2°C) may accelerate degradation.,"Battery is healthy at 96.8% SOH.
+Minimal capacity fade observed.
+ICA peak position stable at 3.31V. ICA peak magnitude remains strong at 34.284.
+Internal resistance at 0.0932Ω is within normal range.
+High temperature variation (ΔT=14.2°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,49,95.96820195991556,Battery shows excellent health with SOH at 96.0%.,Minimal capacity fade observed.,"ICA peak shifted slightly to 3.32V (Δ=0.052V). Weak ICA peak magnitude at 16.156, significant capacity loss indicated.",Elevated internal resistance at 0.1614Ω suggests SEI layer growth.,High temperature variation (ΔT=14.3°C) may accelerate degradation.,"Battery is healthy at 96.0% SOH.
+Minimal capacity fade observed.
+ICA peak shifted slightly to 3.32V (Δ=0.052V). Weak ICA peak magnitude at 16.156, significant capacity loss indicated.
+Elevated internal resistance at 0.1614Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.3°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,50,95.40638930769438,Battery shows excellent health with SOH at 95.4%.,"Slight capacity fade detected, 5.4% reduction from initial.","ICA peak position stable at 3.28V. Weak ICA peak magnitude at 19.376, significant capacity loss indicated.",Elevated internal resistance at 0.1787Ω suggests SEI layer growth.,High temperature variation (ΔT=14.6°C) may accelerate degradation.,"Battery is healthy at 95.4% SOH.
+Slight capacity fade detected, 5.4% reduction from initial.
+ICA peak position stable at 3.28V. Weak ICA peak magnitude at 19.376, significant capacity loss indicated.
+Elevated internal resistance at 0.1787Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.6°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,51,94.85539626804926,Battery is in good condition with SOH at 94.9%.,"Slight capacity fade detected, 5.9% reduction from initial.",ICA peak position stable at 3.28V. ICA peak magnitude remains strong at 279.687.,Internal resistance at 0.0953Ω is within normal range.,High temperature variation (ΔT=14.6°C) may accelerate degradation.,"Battery is healthy at 94.9% SOH.
+Slight capacity fade detected, 5.9% reduction from initial.
+ICA peak position stable at 3.28V. ICA peak magnitude remains strong at 279.687.
+Internal resistance at 0.0953Ω is within normal range.
+High temperature variation (ΔT=14.6°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,52,94.5755674779545,Battery is in good condition with SOH at 94.6%.,"Slight capacity fade detected, 6.2% reduction from initial.",ICA peak shifted slightly to 3.35V (Δ=0.079V). ICA peak magnitude remains strong at 165.165.,Internal resistance at 0.0953Ω is within normal range.,High temperature variation (ΔT=14.9°C) may accelerate degradation.,"Battery is healthy at 94.6% SOH.
+Slight capacity fade detected, 6.2% reduction from initial.
+ICA peak shifted slightly to 3.35V (Δ=0.079V). ICA peak magnitude remains strong at 165.165.
+Internal resistance at 0.0953Ω is within normal range.
+High temperature variation (ΔT=14.9°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,53,94.28806184403474,Battery is in good condition with SOH at 94.3%.,"Slight capacity fade detected, 6.5% reduction from initial.","Significant ICA peak shift to 2.67V (Δ=0.601V), major electrode degradation likely. ICA peak magnitude remains strong at 32.645.",Elevated internal resistance at 0.1836Ω suggests SEI layer growth.,High temperature variation (ΔT=14.9°C) may accelerate degradation.,"Battery is healthy at 94.3% SOH.
+Slight capacity fade detected, 6.5% reduction from initial.
+Significant ICA peak shift to 2.67V (Δ=0.601V), major electrode degradation likely. ICA peak magnitude remains strong at 32.645.
+Elevated internal resistance at 0.1836Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.9°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,54,93.73958753620344,Battery is in good condition with SOH at 93.7%.,"Slight capacity fade detected, 7.0% reduction from initial.","ICA peak shows moderate shift to 3.39V (Δ=0.120V), indicating structural changes. ICA peak magnitude remains strong at 47.645.",Internal resistance at 0.0955Ω is within normal range.,High temperature variation (ΔT=14.8°C) may accelerate degradation.,"Battery is healthy at 93.7% SOH.
+Slight capacity fade detected, 7.0% reduction from initial.
+ICA peak shows moderate shift to 3.39V (Δ=0.120V), indicating structural changes. ICA peak magnitude remains strong at 47.645.
+Internal resistance at 0.0955Ω is within normal range.
+High temperature variation (ΔT=14.8°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,55,93.1686110546919,Battery is in good condition with SOH at 93.2%.,"Slight capacity fade detected, 7.6% reduction from initial.","ICA peak shows moderate shift to 3.40V (Δ=0.132V), indicating structural changes. ICA peak magnitude remains strong at 78.568.",Elevated internal resistance at 0.1753Ω suggests SEI layer growth.,High temperature variation (ΔT=14.9°C) may accelerate degradation.,"Battery is healthy at 93.2% SOH.
+Slight capacity fade detected, 7.6% reduction from initial.
+ICA peak shows moderate shift to 3.40V (Δ=0.132V), indicating structural changes. ICA peak magnitude remains strong at 78.568.
+Elevated internal resistance at 0.1753Ω suggests SEI layer growth.
+High temperature variation (ΔT=14.9°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,56,92.88227598613628,Battery is in good condition with SOH at 92.9%.,"Slight capacity fade detected, 7.9% reduction from initial.","ICA peak shows moderate shift to 3.40V (Δ=0.132V), indicating structural changes. ICA peak magnitude remains strong at 424.160.",Elevated internal resistance at 0.1790Ω suggests SEI layer growth.,High temperature variation (ΔT=15.0°C) may accelerate degradation.,"Battery is healthy at 92.9% SOH.
+Slight capacity fade detected, 7.9% reduction from initial.
+ICA peak shows moderate shift to 3.40V (Δ=0.132V), indicating structural changes. ICA peak magnitude remains strong at 424.160.
+Elevated internal resistance at 0.1790Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.0°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,57,92.63690151819809,Battery is in good condition with SOH at 92.6%.,"Slight capacity fade detected, 8.1% reduction from initial.","ICA peak shows moderate shift to 3.40V (Δ=0.134V), indicating structural changes. ICA peak magnitude remains strong at 246.716.",Internal resistance at 0.0962Ω is within normal range.,High temperature variation (ΔT=15.2°C) may accelerate degradation.,"Battery is healthy at 92.6% SOH.
+Slight capacity fade detected, 8.1% reduction from initial.
+ICA peak shows moderate shift to 3.40V (Δ=0.134V), indicating structural changes. ICA peak magnitude remains strong at 246.716.
+Internal resistance at 0.0962Ω is within normal range.
+High temperature variation (ΔT=15.2°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,58,92.32720191735558,Battery is in good condition with SOH at 92.3%.,"Slight capacity fade detected, 8.4% reduction from initial.","ICA peak shows moderate shift to 3.39V (Δ=0.121V), indicating structural changes. ICA peak magnitude remains strong at 477.213.",Internal resistance at 0.0956Ω is within normal range.,High temperature variation (ΔT=14.9°C) may accelerate degradation.,"Battery is healthy at 92.3% SOH.
+Slight capacity fade detected, 8.4% reduction from initial.
+ICA peak shows moderate shift to 3.39V (Δ=0.121V), indicating structural changes. ICA peak magnitude remains strong at 477.213.
+Internal resistance at 0.0956Ω is within normal range.
+High temperature variation (ΔT=14.9°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,59,92.01599848919146,Battery is in good condition with SOH at 92.0%.,"Slight capacity fade detected, 8.7% reduction from initial.","ICA peak shows moderate shift to 3.38V (Δ=0.114V), indicating structural changes. ICA peak magnitude remains strong at 52.184.",Elevated internal resistance at 0.1847Ω suggests SEI layer growth.,High temperature variation (ΔT=15.0°C) may accelerate degradation.,"Battery is healthy at 92.0% SOH.
+Slight capacity fade detected, 8.7% reduction from initial.
+ICA peak shows moderate shift to 3.38V (Δ=0.114V), indicating structural changes. ICA peak magnitude remains strong at 52.184.
+Elevated internal resistance at 0.1847Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.0°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,60,91.49053823956652,Battery is in good condition with SOH at 91.5%.,"Slight capacity fade detected, 9.2% reduction from initial.","ICA peak shows moderate shift to 3.44V (Δ=0.172V), indicating structural changes. ICA peak magnitude remains strong at 92.542.",Internal resistance at 0.0963Ω is within normal range.,High temperature variation (ΔT=15.0°C) may accelerate degradation.,"Battery is healthy at 91.5% SOH.
+Slight capacity fade detected, 9.2% reduction from initial.
+ICA peak shows moderate shift to 3.44V (Δ=0.172V), indicating structural changes. ICA peak magnitude remains strong at 92.542.
+Internal resistance at 0.0963Ω is within normal range.
+High temperature variation (ΔT=15.0°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,61,90.92425521867006,Battery is in good condition with SOH at 90.9%.,"Slight capacity fade detected, 9.8% reduction from initial.","ICA peak shows moderate shift to 3.46V (Δ=0.191V), indicating structural changes. ICA peak magnitude remains strong at 255.051.",Internal resistance at 0.0969Ω is within normal range.,High temperature variation (ΔT=15.1°C) may accelerate degradation.,"Battery is healthy at 90.9% SOH.
+Slight capacity fade detected, 9.8% reduction from initial.
+ICA peak shows moderate shift to 3.46V (Δ=0.191V), indicating structural changes. ICA peak magnitude remains strong at 255.051.
+Internal resistance at 0.0969Ω is within normal range.
+High temperature variation (ΔT=15.1°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,62,90.92941856192832,Battery is in good condition with SOH at 90.9%.,"Slight capacity fade detected, 9.8% reduction from initial.","ICA peak shows moderate shift to 3.41V (Δ=0.146V), indicating structural changes. ICA peak magnitude remains strong at 87.918.",Elevated internal resistance at 0.1823Ω suggests SEI layer growth.,High temperature variation (ΔT=15.3°C) may accelerate degradation.,"Battery is healthy at 90.9% SOH.
+Slight capacity fade detected, 9.8% reduction from initial.
+ICA peak shows moderate shift to 3.41V (Δ=0.146V), indicating structural changes. ICA peak magnitude remains strong at 87.918.
+Elevated internal resistance at 0.1823Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.3°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,63,90.34010561326149,Battery is in good condition with SOH at 90.3%.,"Slight capacity fade detected, 10.4% reduction from initial.","Significant ICA peak shift to 3.47V (Δ=0.201V), major electrode degradation likely. ICA peak magnitude remains strong at 49.985.",Internal resistance at 0.0963Ω is within normal range.,High temperature variation (ΔT=14.7°C) may accelerate degradation.,"Battery is healthy at 90.3% SOH.
+Slight capacity fade detected, 10.4% reduction from initial.
+Significant ICA peak shift to 3.47V (Δ=0.201V), major electrode degradation likely. ICA peak magnitude remains strong at 49.985.
+Internal resistance at 0.0963Ω is within normal range.
+High temperature variation (ΔT=14.7°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,64,90.08475860446612,Battery is in good condition with SOH at 90.1%.,"Slight capacity fade detected, 10.6% reduction from initial.","ICA peak shows moderate shift to 3.46V (Δ=0.195V), indicating structural changes. ICA peak magnitude remains strong at 228.459.",Elevated internal resistance at 0.1720Ω suggests SEI layer growth.,High temperature variation (ΔT=15.1°C) may accelerate degradation.,"Battery is healthy at 90.1% SOH.
+Slight capacity fade detected, 10.6% reduction from initial.
+ICA peak shows moderate shift to 3.46V (Δ=0.195V), indicating structural changes. ICA peak magnitude remains strong at 228.459.
+Elevated internal resistance at 0.1720Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.1°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,65,89.80457989439148,Battery is in good condition with SOH at 89.8%.,"Slight capacity fade detected, 10.9% reduction from initial.","ICA peak shows moderate shift to 3.46V (Δ=0.195V), indicating structural changes. ICA peak magnitude remains strong at 516.102.",Elevated internal resistance at 0.1833Ω suggests SEI layer growth.,High temperature variation (ΔT=15.4°C) may accelerate degradation.,"Battery is healthy at 89.8% SOH.
+Slight capacity fade detected, 10.9% reduction from initial.
+ICA peak shows moderate shift to 3.46V (Δ=0.195V), indicating structural changes. ICA peak magnitude remains strong at 516.102.
+Elevated internal resistance at 0.1833Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.4°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,66,89.19640288815553,Battery is in good condition with SOH at 89.2%.,"Slight capacity fade detected, 11.5% reduction from initial.","Significant ICA peak shift to 3.49V (Δ=0.219V), major electrode degradation likely. ICA peak magnitude remains strong at 857.823.",Elevated internal resistance at 0.1737Ω suggests SEI layer growth.,High temperature variation (ΔT=15.4°C) may accelerate degradation.,"Battery is healthy at 89.2% SOH.
+Slight capacity fade detected, 11.5% reduction from initial.
+Significant ICA peak shift to 3.49V (Δ=0.219V), major electrode degradation likely. ICA peak magnitude remains strong at 857.823.
+Elevated internal resistance at 0.1737Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.4°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,67,88.93598251136244,Battery is in good condition with SOH at 88.9%.,"Slight capacity fade detected, 11.8% reduction from initial.",ICA peak shifted slightly to 3.37V (Δ=0.099V). ICA peak magnitude remains strong at 352.116.,Elevated internal resistance at 0.1796Ω suggests SEI layer growth.,High temperature variation (ΔT=15.5°C) may accelerate degradation.,"Battery is healthy at 88.9% SOH.
+Slight capacity fade detected, 11.8% reduction from initial.
+ICA peak shifted slightly to 3.37V (Δ=0.099V). ICA peak magnitude remains strong at 352.116.
+Elevated internal resistance at 0.1796Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.5°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,68,88.65781340235766,Battery is in good condition with SOH at 88.7%.,"Slight capacity fade detected, 12.1% reduction from initial.","ICA peak shows moderate shift to 3.46V (Δ=0.192V), indicating structural changes. ICA peak magnitude remains strong at 2447.289.",Internal resistance at 0.0978Ω is within normal range.,High temperature variation (ΔT=15.5°C) may accelerate degradation.,"Battery is healthy at 88.7% SOH.
+Slight capacity fade detected, 12.1% reduction from initial.
+ICA peak shows moderate shift to 3.46V (Δ=0.192V), indicating structural changes. ICA peak magnitude remains strong at 2447.289.
+Internal resistance at 0.0978Ω is within normal range.
+High temperature variation (ΔT=15.5°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,69,88.38728178562211,Battery is in good condition with SOH at 88.4%.,"Slight capacity fade detected, 12.3% reduction from initial.","Significant ICA peak shift to 3.48V (Δ=0.218V), major electrode degradation likely. ICA peak magnitude remains strong at 1010.614.",Internal resistance at 0.0983Ω is within normal range.,High temperature variation (ΔT=15.5°C) may accelerate degradation.,"Battery is healthy at 88.4% SOH.
+Slight capacity fade detected, 12.3% reduction from initial.
+Significant ICA peak shift to 3.48V (Δ=0.218V), major electrode degradation likely. ICA peak magnitude remains strong at 1010.614.
+Internal resistance at 0.0983Ω is within normal range.
+High temperature variation (ΔT=15.5°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,70,88.08171260170516,Battery is in good condition with SOH at 88.1%.,"Slight capacity fade detected, 12.6% reduction from initial.",ICA peak shifted slightly to 3.32V (Δ=0.055V). ICA peak magnitude remains strong at 1925.850.,Internal resistance at 0.0983Ω is within normal range.,High temperature variation (ΔT=15.6°C) may accelerate degradation.,"Battery is healthy at 88.1% SOH.
+Slight capacity fade detected, 12.6% reduction from initial.
+ICA peak shifted slightly to 3.32V (Δ=0.055V). ICA peak magnitude remains strong at 1925.850.
+Internal resistance at 0.0983Ω is within normal range.
+High temperature variation (ΔT=15.6°C) may accelerate degradation.",Diagnosis: thermal stress. Continue normal operation. No immediate action required.
+B0005,71,87.49528010741055,Battery is in good condition with SOH at 87.5%.,"Slight capacity fade detected, 13.2% reduction from initial.","Significant ICA peak shift to 3.50V (Δ=0.236V), major electrode degradation likely. ICA peak magnitude remains strong at 2224.394.",Elevated internal resistance at 0.1725Ω suggests SEI layer growth.,High temperature variation (ΔT=15.5°C) may accelerate degradation.,"Battery is healthy at 87.5% SOH.
+Slight capacity fade detected, 13.2% reduction from initial.
+Significant ICA peak shift to 3.50V (Δ=0.236V), major electrode degradation likely. ICA peak magnitude remains strong at 2224.394.
+Elevated internal resistance at 0.1725Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.5°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,72,87.23667436023675,Battery is in good condition with SOH at 87.2%.,"Slight capacity fade detected, 13.5% reduction from initial.","ICA peak shows moderate shift to 3.45V (Δ=0.183V), indicating structural changes. ICA peak magnitude remains strong at 624.587.",Elevated internal resistance at 0.1794Ω suggests SEI layer growth.,High temperature variation (ΔT=15.7°C) may accelerate degradation.,"Battery is healthy at 87.2% SOH.
+Slight capacity fade detected, 13.5% reduction from initial.
+ICA peak shows moderate shift to 3.45V (Δ=0.183V), indicating structural changes. ICA peak magnitude remains strong at 624.587.
+Elevated internal resistance at 0.1794Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.7°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,73,86.96251727221626,Battery is in good condition with SOH at 87.0%.,"Slight capacity fade detected, 13.7% reduction from initial.","Significant ICA peak shift to 3.47V (Δ=0.208V), major electrode degradation likely. ICA peak magnitude remains strong at 304.014.",Elevated internal resistance at 0.1843Ω suggests SEI layer growth.,High temperature variation (ΔT=15.7°C) may accelerate degradation.,"Battery is healthy at 87.0% SOH.
+Slight capacity fade detected, 13.7% reduction from initial.
+Significant ICA peak shift to 3.47V (Δ=0.208V), major electrode degradation likely. ICA peak magnitude remains strong at 304.014.
+Elevated internal resistance at 0.1843Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.7°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,74,86.35734215456982,Battery is in good condition with SOH at 86.4%.,"Slight capacity fade detected, 14.3% reduction from initial.","Significant ICA peak shift to 3.52V (Δ=0.252V), major electrode degradation likely. ICA peak magnitude remains strong at 150.042.",Internal resistance at 0.0995Ω is within normal range.,High temperature variation (ΔT=15.6°C) may accelerate degradation.,"Battery is healthy at 86.4% SOH.
+Slight capacity fade detected, 14.3% reduction from initial.
+Significant ICA peak shift to 3.52V (Δ=0.252V), major electrode degradation likely. ICA peak magnitude remains strong at 150.042.
+Internal resistance at 0.0995Ω is within normal range.
+High temperature variation (ΔT=15.6°C) may accelerate degradation.","Diagnosis: electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,75,86.10863457357067,Battery is in good condition with SOH at 86.1%.,"Slight capacity fade detected, 14.6% reduction from initial.","Significant ICA peak shift to 3.47V (Δ=0.208V), major electrode degradation likely. ICA peak magnitude remains strong at 171.623.",Elevated internal resistance at 0.1790Ω suggests SEI layer growth.,High temperature variation (ΔT=15.7°C) may accelerate degradation.,"Battery is healthy at 86.1% SOH.
+Slight capacity fade detected, 14.6% reduction from initial.
+Significant ICA peak shift to 3.47V (Δ=0.208V), major electrode degradation likely. ICA peak magnitude remains strong at 171.623.
+Elevated internal resistance at 0.1790Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.7°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,76,86.06270063126738,Battery is in good condition with SOH at 86.1%.,"Slight capacity fade detected, 14.6% reduction from initial.","Significant ICA peak shift to 3.51V (Δ=0.246V), major electrode degradation likely. ICA peak magnitude remains strong at 1388.049.",Elevated internal resistance at 0.1848Ω suggests SEI layer growth.,High temperature variation (ΔT=15.5°C) may accelerate degradation.,"Battery is healthy at 86.1% SOH.
+Slight capacity fade detected, 14.6% reduction from initial.
+Significant ICA peak shift to 3.51V (Δ=0.246V), major electrode degradation likely. ICA peak magnitude remains strong at 1388.049.
+Elevated internal resistance at 0.1848Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.5°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,77,86.63737677555027,Battery is in good condition with SOH at 86.6%.,"Slight capacity fade detected, 14.1% reduction from initial.",ICA peak shifted slightly to 3.32V (Δ=0.054V). ICA peak magnitude remains strong at 949.385.,Elevated internal resistance at 0.1757Ω suggests SEI layer growth.,High temperature variation (ΔT=15.4°C) may accelerate degradation.,"Battery is healthy at 86.6% SOH.
+Slight capacity fade detected, 14.1% reduction from initial.
+ICA peak shifted slightly to 3.32V (Δ=0.054V). ICA peak magnitude remains strong at 949.385.
+Elevated internal resistance at 0.1757Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.4°C) may accelerate degradation.","Diagnosis: increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,78,85.50813849993281,Battery is in good condition with SOH at 85.5%.,Moderate capacity fade of 15.2% indicates aging.,"Significant ICA peak shift to 3.47V (Δ=0.207V), major electrode degradation likely. ICA peak magnitude remains strong at 529.517.",Internal resistance at 0.1000Ω is within normal range.,High temperature variation (ΔT=15.6°C) may accelerate degradation.,"Battery is healthy at 85.5% SOH.
+Moderate capacity fade of 15.2% indicates aging.
+Significant ICA peak shift to 3.47V (Δ=0.207V), major electrode degradation likely. ICA peak magnitude remains strong at 529.517.
+Internal resistance at 0.1000Ω is within normal range.
+High temperature variation (ΔT=15.6°C) may accelerate degradation.","Diagnosis: capacity fade, electrode structural change, thermal stress. Continue normal operation. No immediate action required."
+B0005,79,84.97446653296457,Battery shows moderate degradation with SOH at 85.0%.,Moderate capacity fade of 15.7% indicates aging.,"Significant ICA peak shift to 3.51V (Δ=0.245V), major electrode degradation likely. ICA peak magnitude remains strong at 393.520.",Elevated internal resistance at 0.1763Ω suggests SEI layer growth.,High temperature variation (ΔT=15.9°C) may accelerate degradation.,"Battery degradation detected at 85.0% SOH.
+Moderate capacity fade of 15.7% indicates aging.
+Significant ICA peak shift to 3.51V (Δ=0.245V), major electrode degradation likely. ICA peak magnitude remains strong at 393.520.
+Elevated internal resistance at 0.1763Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,80,84.695578193895,Battery shows moderate degradation with SOH at 84.7%.,Moderate capacity fade of 16.0% indicates aging.,"ICA peak shows moderate shift to 3.46V (Δ=0.194V), indicating structural changes. ICA peak magnitude remains strong at 177.554.",Elevated internal resistance at 0.1784Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 84.7% SOH.
+Moderate capacity fade of 16.0% indicates aging.
+ICA peak shows moderate shift to 3.46V (Δ=0.194V), indicating structural changes. ICA peak magnitude remains strong at 177.554.
+Elevated internal resistance at 0.1784Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,81,84.68013627936153,Battery shows moderate degradation with SOH at 84.7%.,Moderate capacity fade of 16.0% indicates aging.,"Significant ICA peak shift to 3.51V (Δ=0.246V), major electrode degradation likely. ICA peak magnitude remains strong at 151.070.",Elevated internal resistance at 0.1009Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 84.7% SOH.
+Moderate capacity fade of 16.0% indicates aging.
+Significant ICA peak shift to 3.51V (Δ=0.246V), major electrode degradation likely. ICA peak magnitude remains strong at 151.070.
+Elevated internal resistance at 0.1009Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,82,84.41991821853577,Battery shows moderate degradation with SOH at 84.4%.,Moderate capacity fade of 16.3% indicates aging.,"Significant ICA peak shift to 3.49V (Δ=0.224V), major electrode degradation likely. ICA peak magnitude remains strong at 509.251.",Elevated internal resistance at 0.1797Ω suggests SEI layer growth.,High temperature variation (ΔT=15.8°C) may accelerate degradation.,"Battery degradation detected at 84.4% SOH.
+Moderate capacity fade of 16.3% indicates aging.
+Significant ICA peak shift to 3.49V (Δ=0.224V), major electrode degradation likely. ICA peak magnitude remains strong at 509.251.
+Elevated internal resistance at 0.1797Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,83,84.1041493114089,Battery shows moderate degradation with SOH at 84.1%.,Moderate capacity fade of 16.6% indicates aging.,"Significant ICA peak shift to 3.48V (Δ=0.209V), major electrode degradation likely. ICA peak magnitude remains strong at 592.258.",Elevated internal resistance at 0.1008Ω suggests SEI layer growth.,High temperature variation (ΔT=15.9°C) may accelerate degradation.,"Battery degradation detected at 84.1% SOH.
+Moderate capacity fade of 16.6% indicates aging.
+Significant ICA peak shift to 3.48V (Δ=0.209V), major electrode degradation likely. ICA peak magnitude remains strong at 592.258.
+Elevated internal resistance at 0.1008Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,84,83.52653061113344,Battery shows moderate degradation with SOH at 83.5%.,Moderate capacity fade of 17.1% indicates aging.,"ICA peak shows moderate shift to 3.46V (Δ=0.197V), indicating structural changes. ICA peak magnitude remains strong at 206.785.",Elevated internal resistance at 0.1803Ω suggests SEI layer growth.,High temperature variation (ΔT=15.9°C) may accelerate degradation.,"Battery degradation detected at 83.5% SOH.
+Moderate capacity fade of 17.1% indicates aging.
+ICA peak shows moderate shift to 3.46V (Δ=0.197V), indicating structural changes. ICA peak magnitude remains strong at 206.785.
+Elevated internal resistance at 0.1803Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,85,82.9660256105748,Battery shows moderate degradation with SOH at 83.0%.,Moderate capacity fade of 17.7% indicates aging.,"Significant ICA peak shift to 3.53V (Δ=0.264V), major electrode degradation likely. ICA peak magnitude remains strong at 2544.113.",Elevated internal resistance at 0.1021Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 83.0% SOH.
+Moderate capacity fade of 17.7% indicates aging.
+Significant ICA peak shift to 3.53V (Δ=0.264V), major electrode degradation likely. ICA peak magnitude remains strong at 2544.113.
+Elevated internal resistance at 0.1021Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,86,82.99920327964685,Battery shows moderate degradation with SOH at 83.0%.,Moderate capacity fade of 17.7% indicates aging.,"Significant ICA peak shift to 3.50V (Δ=0.230V), major electrode degradation likely. ICA peak magnitude remains strong at 2168.241.",Elevated internal resistance at 0.1021Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 83.0% SOH.
+Moderate capacity fade of 17.7% indicates aging.
+Significant ICA peak shift to 3.50V (Δ=0.230V), major electrode degradation likely. ICA peak magnitude remains strong at 2168.241.
+Elevated internal resistance at 0.1021Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,87,82.6800301805037,Battery shows moderate degradation with SOH at 82.7%.,Moderate capacity fade of 18.0% indicates aging.,"Significant ICA peak shift to 3.54V (Δ=0.273V), major electrode degradation likely. ICA peak magnitude remains strong at 225.462.",Elevated internal resistance at 0.1734Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 82.7% SOH.
+Moderate capacity fade of 18.0% indicates aging.
+Significant ICA peak shift to 3.54V (Δ=0.273V), major electrode degradation likely. ICA peak magnitude remains strong at 225.462.
+Elevated internal resistance at 0.1734Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,88,82.39976893302801,Battery shows moderate degradation with SOH at 82.4%.,Moderate capacity fade of 18.3% indicates aging.,"ICA peak shows moderate shift to 3.47V (Δ=0.200V), indicating structural changes. ICA peak magnitude remains strong at 624.166.",Elevated internal resistance at 0.1733Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 82.4% SOH.
+Moderate capacity fade of 18.3% indicates aging.
+ICA peak shows moderate shift to 3.47V (Δ=0.200V), indicating structural changes. ICA peak magnitude remains strong at 624.166.
+Elevated internal resistance at 0.1733Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,89,87.19626195760691,Battery is in good condition with SOH at 87.2%.,"Slight capacity fade detected, 13.5% reduction from initial.","ICA peak shows moderate shift to 3.39V (Δ=0.128V), indicating structural changes. ICA peak magnitude remains strong at 352.717.",Elevated internal resistance at 0.1013Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery is healthy at 87.2% SOH.
+Slight capacity fade detected, 13.5% reduction from initial.
+ICA peak shows moderate shift to 3.39V (Δ=0.128V), indicating structural changes. ICA peak magnitude remains strong at 352.717.
+Elevated internal resistance at 0.1013Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.","Diagnosis: electrode structural change, increased internal resistance, thermal stress. Continue normal operation. No immediate action required."
+B0005,90,84.9172965612961,Battery shows moderate degradation with SOH at 84.9%.,Moderate capacity fade of 15.8% indicates aging.,"Significant ICA peak shift to 3.48V (Δ=0.217V), major electrode degradation likely. ICA peak magnitude remains strong at 6533.992.",Internal resistance at 0.0986Ω is within normal range.,High temperature variation (ΔT=15.8°C) may accelerate degradation.,"Battery degradation detected at 84.9% SOH.
+Moderate capacity fade of 15.8% indicates aging.
+Significant ICA peak shift to 3.48V (Δ=0.217V), major electrode degradation likely. ICA peak magnitude remains strong at 6533.992.
+Internal resistance at 0.0986Ω is within normal range.
+High temperature variation (ΔT=15.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,91,84.06165489885899,Battery shows moderate degradation with SOH at 84.1%.,Moderate capacity fade of 16.6% indicates aging.,"Significant ICA peak shift to 3.49V (Δ=0.221V), major electrode degradation likely. ICA peak magnitude remains strong at 604.211.",Elevated internal resistance at 0.1814Ω suggests SEI layer growth.,High temperature variation (ΔT=15.8°C) may accelerate degradation.,"Battery degradation detected at 84.1% SOH.
+Moderate capacity fade of 16.6% indicates aging.
+Significant ICA peak shift to 3.49V (Δ=0.221V), major electrode degradation likely. ICA peak magnitude remains strong at 604.211.
+Elevated internal resistance at 0.1814Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,92,83.20827529020437,Battery shows moderate degradation with SOH at 83.2%.,Moderate capacity fade of 17.5% indicates aging.,"Significant ICA peak shift to 3.50V (Δ=0.231V), major electrode degradation likely. ICA peak magnitude remains strong at 2673.193.",Elevated internal resistance at 0.1704Ω suggests SEI layer growth.,High temperature variation (ΔT=15.8°C) may accelerate degradation.,"Battery degradation detected at 83.2% SOH.
+Moderate capacity fade of 17.5% indicates aging.
+Significant ICA peak shift to 3.50V (Δ=0.231V), major electrode degradation likely. ICA peak magnitude remains strong at 2673.193.
+Elevated internal resistance at 0.1704Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,93,82.91381970838157,Battery shows moderate degradation with SOH at 82.9%.,Moderate capacity fade of 17.8% indicates aging.,"Significant ICA peak shift to 3.47V (Δ=0.201V), major electrode degradation likely. ICA peak magnitude remains strong at 1002.506.",Elevated internal resistance at 0.1006Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 82.9% SOH.
+Moderate capacity fade of 17.8% indicates aging.
+Significant ICA peak shift to 3.47V (Δ=0.201V), major electrode degradation likely. ICA peak magnitude remains strong at 1002.506.
+Elevated internal resistance at 0.1006Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,94,82.37106085271196,Battery shows moderate degradation with SOH at 82.4%.,Moderate capacity fade of 18.3% indicates aging.,"Significant ICA peak shift to 3.48V (Δ=0.210V), major electrode degradation likely. ICA peak magnitude remains strong at 228.143.",Elevated internal resistance at 0.1761Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 82.4% SOH.
+Moderate capacity fade of 18.3% indicates aging.
+Significant ICA peak shift to 3.48V (Δ=0.210V), major electrode degradation likely. ICA peak magnitude remains strong at 228.143.
+Elevated internal resistance at 0.1761Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,95,82.09631790141843,Battery shows moderate degradation with SOH at 82.1%.,Moderate capacity fade of 18.6% indicates aging.,"ICA peak shows moderate shift to 3.40V (Δ=0.129V), indicating structural changes. ICA peak magnitude remains strong at 714.426.",Elevated internal resistance at 0.1812Ω suggests SEI layer growth.,High temperature variation (ΔT=16.1°C) may accelerate degradation.,"Battery degradation detected at 82.1% SOH.
+Moderate capacity fade of 18.6% indicates aging.
+ICA peak shows moderate shift to 3.40V (Δ=0.129V), indicating structural changes. ICA peak magnitude remains strong at 714.426.
+Elevated internal resistance at 0.1812Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,96,81.8066970120639,Battery shows moderate degradation with SOH at 81.8%.,Moderate capacity fade of 18.8% indicates aging.,"Significant ICA peak shift to 3.47V (Δ=0.203V), major electrode degradation likely. ICA peak magnitude remains strong at 688.070.",Elevated internal resistance at 0.1794Ω suggests SEI layer growth.,High temperature variation (ΔT=16.1°C) may accelerate degradation.,"Battery degradation detected at 81.8% SOH.
+Moderate capacity fade of 18.8% indicates aging.
+Significant ICA peak shift to 3.47V (Δ=0.203V), major electrode degradation likely. ICA peak magnitude remains strong at 688.070.
+Elevated internal resistance at 0.1794Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,97,81.53418918115354,Battery shows moderate degradation with SOH at 81.5%.,Moderate capacity fade of 19.1% indicates aging.,"ICA peak shows moderate shift to 3.41V (Δ=0.139V), indicating structural changes. ICA peak magnitude remains strong at 1787.085.",Elevated internal resistance at 0.1835Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 81.5% SOH.
+Moderate capacity fade of 19.1% indicates aging.
+ICA peak shows moderate shift to 3.41V (Δ=0.139V), indicating structural changes. ICA peak magnitude remains strong at 1787.085.
+Elevated internal resistance at 0.1835Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,98,80.95312575426682,Battery shows moderate degradation with SOH at 81.0%.,Moderate capacity fade of 19.7% indicates aging.,"ICA peak shows moderate shift to 3.45V (Δ=0.181V), indicating structural changes. ICA peak magnitude remains strong at 1311.043.",Elevated internal resistance at 0.1714Ω suggests SEI layer growth.,High temperature variation (ΔT=16.1°C) may accelerate degradation.,"Battery degradation detected at 81.0% SOH.
+Moderate capacity fade of 19.7% indicates aging.
+ICA peak shows moderate shift to 3.45V (Δ=0.181V), indicating structural changes. ICA peak magnitude remains strong at 1311.043.
+Elevated internal resistance at 0.1714Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,99,80.68292692586049,Battery shows moderate degradation with SOH at 80.7%.,Moderate capacity fade of 20.0% indicates aging.,"Significant ICA peak shift to 3.49V (Δ=0.225V), major electrode degradation likely. ICA peak magnitude remains strong at 635.477.",Elevated internal resistance at 0.1023Ω suggests SEI layer growth.,High temperature variation (ΔT=16.1°C) may accelerate degradation.,"Battery degradation detected at 80.7% SOH.
+Moderate capacity fade of 20.0% indicates aging.
+Significant ICA peak shift to 3.49V (Δ=0.225V), major electrode degradation likely. ICA peak magnitude remains strong at 635.477.
+Elevated internal resistance at 0.1023Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,100,80.38673535372659,Battery shows moderate degradation with SOH at 80.4%.,Moderate capacity fade of 20.3% indicates aging.,"Significant ICA peak shift to 3.53V (Δ=0.263V), major electrode degradation likely. ICA peak magnitude remains strong at 577.199.",Elevated internal resistance at 0.1025Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 80.4% SOH.
+Moderate capacity fade of 20.3% indicates aging.
+Significant ICA peak shift to 3.53V (Δ=0.263V), major electrode degradation likely. ICA peak magnitude remains strong at 577.199.
+Elevated internal resistance at 0.1025Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,101,80.10415225005704,Battery shows moderate degradation with SOH at 80.1%.,Moderate capacity fade of 20.5% indicates aging.,"Significant ICA peak shift to 3.56V (Δ=0.296V), major electrode degradation likely. ICA peak magnitude remains strong at 179.858.",Elevated internal resistance at 0.1741Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 80.1% SOH.
+Moderate capacity fade of 20.5% indicates aging.
+Significant ICA peak shift to 3.56V (Δ=0.296V), major electrode degradation likely. ICA peak magnitude remains strong at 179.858.
+Elevated internal resistance at 0.1741Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,102,80.68483906716334,Battery shows moderate degradation with SOH at 80.7%.,Moderate capacity fade of 20.0% indicates aging.,"Significant ICA peak shift to 3.54V (Δ=0.271V), major electrode degradation likely. ICA peak magnitude remains strong at 340.968.",Elevated internal resistance at 0.1817Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 80.7% SOH.
+Moderate capacity fade of 20.0% indicates aging.
+Significant ICA peak shift to 3.54V (Δ=0.271V), major electrode degradation likely. ICA peak magnitude remains strong at 340.968.
+Elevated internal resistance at 0.1817Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,103,81.23806188586506,Battery shows moderate degradation with SOH at 81.2%.,Moderate capacity fade of 19.4% indicates aging.,"Significant ICA peak shift to 3.49V (Δ=0.226V), major electrode degradation likely. ICA peak magnitude remains strong at 1246.288.",Elevated internal resistance at 0.1768Ω suggests SEI layer growth.,High temperature variation (ΔT=15.9°C) may accelerate degradation.,"Battery degradation detected at 81.2% SOH.
+Moderate capacity fade of 19.4% indicates aging.
+Significant ICA peak shift to 3.49V (Δ=0.226V), major electrode degradation likely. ICA peak magnitude remains strong at 1246.288.
+Elevated internal resistance at 0.1768Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,104,80.40774500270473,Battery shows moderate degradation with SOH at 80.4%.,Moderate capacity fade of 20.2% indicates aging.,"Significant ICA peak shift to 3.47V (Δ=0.205V), major electrode degradation likely. ICA peak magnitude remains strong at 2001.131.",Elevated internal resistance at 0.1796Ω suggests SEI layer growth.,High temperature variation (ΔT=16.1°C) may accelerate degradation.,"Battery degradation detected at 80.4% SOH.
+Moderate capacity fade of 20.2% indicates aging.
+Significant ICA peak shift to 3.47V (Δ=0.205V), major electrode degradation likely. ICA peak magnitude remains strong at 2001.131.
+Elevated internal resistance at 0.1796Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,105,79.80793062432497,Battery shows moderate degradation with SOH at 79.8%.,Moderate capacity fade of 20.8% indicates aging.,"Significant ICA peak shift to 3.55V (Δ=0.288V), major electrode degradation likely. ICA peak magnitude remains strong at 155.656.",Elevated internal resistance at 0.1761Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 79.8% SOH.
+Moderate capacity fade of 20.8% indicates aging.
+Significant ICA peak shift to 3.55V (Δ=0.288V), major electrode degradation likely. ICA peak magnitude remains strong at 155.656.
+Elevated internal resistance at 0.1761Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,106,78.9471044093856,Battery shows moderate degradation with SOH at 78.9%.,Moderate capacity fade of 21.7% indicates aging.,"Significant ICA peak shift to 3.49V (Δ=0.220V), major electrode degradation likely. ICA peak magnitude remains strong at 3323.543.",Elevated internal resistance at 0.1032Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 78.9% SOH.
+Moderate capacity fade of 21.7% indicates aging.
+Significant ICA peak shift to 3.49V (Δ=0.220V), major electrode degradation likely. ICA peak magnitude remains strong at 3323.543.
+Elevated internal resistance at 0.1032Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,107,78.9604068271785,Battery shows moderate degradation with SOH at 79.0%.,Moderate capacity fade of 21.7% indicates aging.,"Significant ICA peak shift to 3.56V (Δ=0.296V), major electrode degradation likely. ICA peak magnitude remains strong at 2754.366.",Elevated internal resistance at 0.1753Ω suggests SEI layer growth.,High temperature variation (ΔT=16.3°C) may accelerate degradation.,"Battery degradation detected at 79.0% SOH.
+Moderate capacity fade of 21.7% indicates aging.
+Significant ICA peak shift to 3.56V (Δ=0.296V), major electrode degradation likely. ICA peak magnitude remains strong at 2754.366.
+Elevated internal resistance at 0.1753Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.3°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,108,79.00805769223425,Battery shows moderate degradation with SOH at 79.0%.,Moderate capacity fade of 21.6% indicates aging.,"Significant ICA peak shift to 3.51V (Δ=0.240V), major electrode degradation likely. ICA peak magnitude remains strong at 344.307.",Elevated internal resistance at 0.1828Ω suggests SEI layer growth.,High temperature variation (ΔT=16.4°C) may accelerate degradation.,"Battery degradation detected at 79.0% SOH.
+Moderate capacity fade of 21.6% indicates aging.
+Significant ICA peak shift to 3.51V (Δ=0.240V), major electrode degradation likely. ICA peak magnitude remains strong at 344.307.
+Elevated internal resistance at 0.1828Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.4°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,109,78.68325635434037,Battery shows moderate degradation with SOH at 78.7%.,Moderate capacity fade of 21.9% indicates aging.,"Significant ICA peak shift to 3.54V (Δ=0.276V), major electrode degradation likely. ICA peak magnitude remains strong at 1754.149.",Elevated internal resistance at 0.1033Ω suggests SEI layer growth.,High temperature variation (ΔT=16.3°C) may accelerate degradation.,"Battery degradation detected at 78.7% SOH.
+Moderate capacity fade of 21.9% indicates aging.
+Significant ICA peak shift to 3.54V (Δ=0.276V), major electrode degradation likely. ICA peak magnitude remains strong at 1754.149.
+Elevated internal resistance at 0.1033Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.3°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,110,78.1200968392331,Battery shows moderate degradation with SOH at 78.1%.,Moderate capacity fade of 22.5% indicates aging.,"Significant ICA peak shift to 3.58V (Δ=0.309V), major electrode degradation likely. ICA peak magnitude remains strong at 381.687.",Elevated internal resistance at 0.1747Ω suggests SEI layer growth.,High temperature variation (ΔT=16.3°C) may accelerate degradation.,"Battery degradation detected at 78.1% SOH.
+Moderate capacity fade of 22.5% indicates aging.
+Significant ICA peak shift to 3.58V (Δ=0.309V), major electrode degradation likely. ICA peak magnitude remains strong at 381.687.
+Elevated internal resistance at 0.1747Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.3°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,111,77.83635095586514,Battery shows moderate degradation with SOH at 77.8%.,Moderate capacity fade of 22.8% indicates aging.,"Significant ICA peak shift to 3.54V (Δ=0.275V), major electrode degradation likely. ICA peak magnitude remains strong at 1496.463.",Elevated internal resistance at 0.1045Ω suggests SEI layer growth.,High temperature variation (ΔT=16.4°C) may accelerate degradation.,"Battery degradation detected at 77.8% SOH.
+Moderate capacity fade of 22.8% indicates aging.
+Significant ICA peak shift to 3.54V (Δ=0.275V), major electrode degradation likely. ICA peak magnitude remains strong at 1496.463.
+Elevated internal resistance at 0.1045Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.4°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,112,77.83366081216815,Battery shows moderate degradation with SOH at 77.8%.,Moderate capacity fade of 22.8% indicates aging.,"Significant ICA peak shift to 3.56V (Δ=0.290V), major electrode degradation likely. ICA peak magnitude remains strong at 557.772.",Elevated internal resistance at 0.1041Ω suggests SEI layer growth.,High temperature variation (ΔT=16.5°C) may accelerate degradation.,"Battery degradation detected at 77.8% SOH.
+Moderate capacity fade of 22.8% indicates aging.
+Significant ICA peak shift to 3.56V (Δ=0.290V), major electrode degradation likely. ICA peak magnitude remains strong at 557.772.
+Elevated internal resistance at 0.1041Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.5°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,113,77.54418562704673,Battery shows moderate degradation with SOH at 77.5%.,Moderate capacity fade of 23.1% indicates aging.,"Significant ICA peak shift to 3.55V (Δ=0.287V), major electrode degradation likely. ICA peak magnitude remains strong at 196.413.",Elevated internal resistance at 0.1744Ω suggests SEI layer growth.,High temperature variation (ΔT=16.3°C) may accelerate degradation.,"Battery degradation detected at 77.5% SOH.
+Moderate capacity fade of 23.1% indicates aging.
+Significant ICA peak shift to 3.55V (Δ=0.287V), major electrode degradation likely. ICA peak magnitude remains strong at 196.413.
+Elevated internal resistance at 0.1744Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.3°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,114,77.26483532824362,Battery shows moderate degradation with SOH at 77.3%.,Moderate capacity fade of 23.4% indicates aging.,"Significant ICA peak shift to 3.54V (Δ=0.274V), major electrode degradation likely. ICA peak magnitude remains strong at 867.180.",Elevated internal resistance at 0.1742Ω suggests SEI layer growth.,High temperature variation (ΔT=16.4°C) may accelerate degradation.,"Battery degradation detected at 77.3% SOH.
+Moderate capacity fade of 23.4% indicates aging.
+Significant ICA peak shift to 3.54V (Δ=0.274V), major electrode degradation likely. ICA peak magnitude remains strong at 867.180.
+Elevated internal resistance at 0.1742Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.4°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,115,76.96665751739924,Battery shows moderate degradation with SOH at 77.0%.,Moderate capacity fade of 23.6% indicates aging.,"Significant ICA peak shift to 3.55V (Δ=0.285V), major electrode degradation likely. ICA peak magnitude remains strong at 1313.315.",Elevated internal resistance at 0.1051Ω suggests SEI layer growth.,High temperature variation (ΔT=16.4°C) may accelerate degradation.,"Battery degradation detected at 77.0% SOH.
+Moderate capacity fade of 23.6% indicates aging.
+Significant ICA peak shift to 3.55V (Δ=0.285V), major electrode degradation likely. ICA peak magnitude remains strong at 1313.315.
+Elevated internal resistance at 0.1051Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.4°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,116,76.69408123915802,Battery shows moderate degradation with SOH at 76.7%.,Moderate capacity fade of 23.9% indicates aging.,"Significant ICA peak shift to 3.58V (Δ=0.313V), major electrode degradation likely. ICA peak magnitude remains strong at 210.788.",Elevated internal resistance at 0.1804Ω suggests SEI layer growth.,High temperature variation (ΔT=16.6°C) may accelerate degradation.,"Battery degradation detected at 76.7% SOH.
+Moderate capacity fade of 23.9% indicates aging.
+Significant ICA peak shift to 3.58V (Δ=0.313V), major electrode degradation likely. ICA peak magnitude remains strong at 210.788.
+Elevated internal resistance at 0.1804Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.6°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,117,76.70328860349977,Battery shows moderate degradation with SOH at 76.7%.,Moderate capacity fade of 23.9% indicates aging.,"Significant ICA peak shift to 3.54V (Δ=0.271V), major electrode degradation likely. ICA peak magnitude remains strong at 4193.744.",Elevated internal resistance at 0.1847Ω suggests SEI layer growth.,High temperature variation (ΔT=16.6°C) may accelerate degradation.,"Battery degradation detected at 76.7% SOH.
+Moderate capacity fade of 23.9% indicates aging.
+Significant ICA peak shift to 3.54V (Δ=0.271V), major electrode degradation likely. ICA peak magnitude remains strong at 4193.744.
+Elevated internal resistance at 0.1847Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.6°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,118,76.43285089151239,Battery shows moderate degradation with SOH at 76.4%.,Moderate capacity fade of 24.2% indicates aging.,"Significant ICA peak shift to 3.54V (Δ=0.271V), major electrode degradation likely. ICA peak magnitude remains strong at 2631.078.",Elevated internal resistance at 0.1049Ω suggests SEI layer growth.,High temperature variation (ΔT=16.4°C) may accelerate degradation.,"Battery degradation detected at 76.4% SOH.
+Moderate capacity fade of 24.2% indicates aging.
+Significant ICA peak shift to 3.54V (Δ=0.271V), major electrode degradation likely. ICA peak magnitude remains strong at 2631.078.
+Elevated internal resistance at 0.1049Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.4°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,119,77.83345221466243,Battery shows moderate degradation with SOH at 77.8%.,Moderate capacity fade of 22.8% indicates aging.,"Significant ICA peak shift to 3.47V (Δ=0.208V), major electrode degradation likely. ICA peak magnitude remains strong at 1432.254.",Elevated internal resistance at 0.1743Ω suggests SEI layer growth.,High temperature variation (ΔT=16.0°C) may accelerate degradation.,"Battery degradation detected at 77.8% SOH.
+Moderate capacity fade of 22.8% indicates aging.
+Significant ICA peak shift to 3.47V (Δ=0.208V), major electrode degradation likely. ICA peak magnitude remains strong at 1432.254.
+Elevated internal resistance at 0.1743Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,120,78.09751233548153,Battery shows moderate degradation with SOH at 78.1%.,Moderate capacity fade of 22.5% indicates aging.,"Significant ICA peak shift to 3.55V (Δ=0.279V), major electrode degradation likely. ICA peak magnitude remains strong at 1400.014.",Elevated internal resistance at 0.1776Ω suggests SEI layer growth.,High temperature variation (ΔT=16.1°C) may accelerate degradation.,"Battery degradation detected at 78.1% SOH.
+Moderate capacity fade of 22.5% indicates aging.
+Significant ICA peak shift to 3.55V (Δ=0.279V), major electrode degradation likely. ICA peak magnitude remains strong at 1400.014.
+Elevated internal resistance at 0.1776Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,121,76.96262218385938,Battery shows moderate degradation with SOH at 77.0%.,Moderate capacity fade of 23.7% indicates aging.,"Significant ICA peak shift to 3.51V (Δ=0.242V), major electrode degradation likely. ICA peak magnitude remains strong at 75146.533.",Elevated internal resistance at 0.1044Ω suggests SEI layer growth.,High temperature variation (ΔT=16.2°C) may accelerate degradation.,"Battery degradation detected at 77.0% SOH.
+Moderate capacity fade of 23.7% indicates aging.
+Significant ICA peak shift to 3.51V (Δ=0.242V), major electrode degradation likely. ICA peak magnitude remains strong at 75146.533.
+Elevated internal resistance at 0.1044Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,122,76.3993634537509,Battery shows moderate degradation with SOH at 76.4%.,Moderate capacity fade of 24.2% indicates aging.,"ICA peak shows moderate shift to 3.46V (Δ=0.196V), indicating structural changes. ICA peak magnitude remains strong at 8456.775.",Elevated internal resistance at 0.1050Ω suggests SEI layer growth.,High temperature variation (ΔT=16.3°C) may accelerate degradation.,"Battery degradation detected at 76.4% SOH.
+Moderate capacity fade of 24.2% indicates aging.
+ICA peak shows moderate shift to 3.46V (Δ=0.196V), indicating structural changes. ICA peak magnitude remains strong at 8456.775.
+Elevated internal resistance at 0.1050Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.3°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,123,76.08562321685439,Battery shows moderate degradation with SOH at 76.1%.,Moderate capacity fade of 24.5% indicates aging.,"Significant ICA peak shift to 3.56V (Δ=0.293V), major electrode degradation likely. ICA peak magnitude remains strong at 1004.967.",Elevated internal resistance at 0.1748Ω suggests SEI layer growth.,High temperature variation (ΔT=16.5°C) may accelerate degradation.,"Battery degradation detected at 76.1% SOH.
+Moderate capacity fade of 24.5% indicates aging.
+Significant ICA peak shift to 3.56V (Δ=0.293V), major electrode degradation likely. ICA peak magnitude remains strong at 1004.967.
+Elevated internal resistance at 0.1748Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.5°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,124,75.84111192639314,Battery shows moderate degradation with SOH at 75.8%.,Moderate capacity fade of 24.8% indicates aging.,"Significant ICA peak shift to 3.48V (Δ=0.217V), major electrode degradation likely. ICA peak magnitude remains strong at 1106.322.",Elevated internal resistance at 0.1787Ω suggests SEI layer growth.,High temperature variation (ΔT=16.5°C) may accelerate degradation.,"Battery degradation detected at 75.8% SOH.
+Moderate capacity fade of 24.8% indicates aging.
+Significant ICA peak shift to 3.48V (Δ=0.217V), major electrode degradation likely. ICA peak magnitude remains strong at 1106.322.
+Elevated internal resistance at 0.1787Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.5°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,125,75.547020259951,Battery shows moderate degradation with SOH at 75.5%.,Significant capacity fade of 25.1% suggests accelerated degradation.,ICA peak shifted slightly to 3.35V (Δ=0.086V). ICA peak magnitude remains strong at 4008.495.,Elevated internal resistance at 0.1789Ω suggests SEI layer growth.,High temperature variation (ΔT=16.6°C) may accelerate degradation.,"Battery degradation detected at 75.5% SOH.
+Significant capacity fade of 25.1% suggests accelerated degradation.
+ICA peak shifted slightly to 3.35V (Δ=0.086V). ICA peak magnitude remains strong at 4008.495.
+Elevated internal resistance at 0.1789Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.6°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,126,75.2724773855309,Battery shows moderate degradation with SOH at 75.3%.,Significant capacity fade of 25.3% suggests accelerated degradation.,ICA peak position stable at 3.25V. ICA peak magnitude remains strong at 3697.193.,Elevated internal resistance at 0.1811Ω suggests SEI layer growth.,High temperature variation (ΔT=16.6°C) may accelerate degradation.,"Battery degradation detected at 75.3% SOH.
+Significant capacity fade of 25.3% suggests accelerated degradation.
+ICA peak position stable at 3.25V. ICA peak magnitude remains strong at 3697.193.
+Elevated internal resistance at 0.1811Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.6°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,127,74.95796574493046,Battery is significantly degraded with SOH at 75.0%.,Significant capacity fade of 25.6% suggests accelerated degradation.,"Significant ICA peak shift to 3.54V (Δ=0.274V), major electrode degradation likely. ICA peak magnitude remains strong at 1209.435.",Elevated internal resistance at 0.1069Ω suggests SEI layer growth.,High temperature variation (ΔT=16.6°C) may accelerate degradation.,"Battery degradation detected at 75.0% SOH.
+Significant capacity fade of 25.6% suggests accelerated degradation.
+Significant ICA peak shift to 3.54V (Δ=0.274V), major electrode degradation likely. ICA peak magnitude remains strong at 1209.435.
+Elevated internal resistance at 0.1069Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.6°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,128,74.67559060559876,Battery is significantly degraded with SOH at 74.7%.,Significant capacity fade of 25.9% suggests accelerated degradation.,"Significant ICA peak shift to 3.56V (Δ=0.292V), major electrode degradation likely. ICA peak magnitude remains strong at 1584.275.",Elevated internal resistance at 0.1766Ω suggests SEI layer growth.,High temperature variation (ΔT=16.6°C) may accelerate degradation.,"Battery degradation detected at 74.7% SOH.
+Significant capacity fade of 25.9% suggests accelerated degradation.
+Significant ICA peak shift to 3.56V (Δ=0.292V), major electrode degradation likely. ICA peak magnitude remains strong at 1584.275.
+Elevated internal resistance at 0.1766Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.6°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,129,74.41909757496569,Battery is significantly degraded with SOH at 74.4%.,Significant capacity fade of 26.2% suggests accelerated degradation.,"Significant ICA peak shift to 3.57V (Δ=0.301V), major electrode degradation likely. ICA peak magnitude remains strong at 738.640.",Elevated internal resistance at 0.1822Ω suggests SEI layer growth.,High temperature variation (ΔT=16.7°C) may accelerate degradation.,"Battery degradation detected at 74.4% SOH.
+Significant capacity fade of 26.2% suggests accelerated degradation.
+Significant ICA peak shift to 3.57V (Δ=0.301V), major electrode degradation likely. ICA peak magnitude remains strong at 738.640.
+Elevated internal resistance at 0.1822Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.7°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,130,74.41886702385212,Battery is significantly degraded with SOH at 74.4%.,Significant capacity fade of 26.2% suggests accelerated degradation.,"ICA peak shows moderate shift to 3.37V (Δ=0.102V), indicating structural changes. ICA peak magnitude remains strong at 12354.531.",Elevated internal resistance at 0.1866Ω suggests SEI layer growth.,High temperature variation (ΔT=16.8°C) may accelerate degradation.,"Battery degradation detected at 74.4% SOH.
+Significant capacity fade of 26.2% suggests accelerated degradation.
+ICA peak shows moderate shift to 3.37V (Δ=0.102V), indicating structural changes. ICA peak magnitude remains strong at 12354.531.
+Elevated internal resistance at 0.1866Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,131,74.10538957595449,Battery is significantly degraded with SOH at 74.1%.,Significant capacity fade of 26.5% suggests accelerated degradation.,"Significant ICA peak shift to 3.58V (Δ=0.316V), major electrode degradation likely. ICA peak magnitude remains strong at 1282.690.",Elevated internal resistance at 0.1079Ω suggests SEI layer growth.,High temperature variation (ΔT=16.8°C) may accelerate degradation.,"Battery degradation detected at 74.1% SOH.
+Significant capacity fade of 26.5% suggests accelerated degradation.
+Significant ICA peak shift to 3.58V (Δ=0.316V), major electrode degradation likely. ICA peak magnitude remains strong at 1282.690.
+Elevated internal resistance at 0.1079Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,132,74.68403981580369,Battery is significantly degraded with SOH at 74.7%.,Significant capacity fade of 25.9% suggests accelerated degradation.,"Significant ICA peak shift to 3.54V (Δ=0.277V), major electrode degradation likely. ICA peak magnitude remains strong at 253.328.",Elevated internal resistance at 0.1069Ω suggests SEI layer growth.,High temperature variation (ΔT=16.4°C) may accelerate degradation.,"Battery degradation detected at 74.7% SOH.
+Significant capacity fade of 25.9% suggests accelerated degradation.
+Significant ICA peak shift to 3.54V (Δ=0.277V), major electrode degradation likely. ICA peak magnitude remains strong at 253.328.
+Elevated internal resistance at 0.1069Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.4°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,133,75.26611054535188,Battery shows moderate degradation with SOH at 75.3%.,Significant capacity fade of 25.3% suggests accelerated degradation.,"Significant ICA peak shift to 3.55V (Δ=0.287V), major electrode degradation likely. ICA peak magnitude remains strong at 342.761.",Elevated internal resistance at 0.1728Ω suggests SEI layer growth.,High temperature variation (ΔT=16.4°C) may accelerate degradation.,"Battery degradation detected at 75.3% SOH.
+Significant capacity fade of 25.3% suggests accelerated degradation.
+Significant ICA peak shift to 3.55V (Δ=0.287V), major electrode degradation likely. ICA peak magnitude remains strong at 342.761.
+Elevated internal resistance at 0.1728Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.4°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,134,74.38310747232721,Battery is significantly degraded with SOH at 74.4%.,Significant capacity fade of 26.2% suggests accelerated degradation.,"Significant ICA peak shift to 3.55V (Δ=0.288V), major electrode degradation likely. ICA peak magnitude remains strong at 325.773.",Elevated internal resistance at 0.1737Ω suggests SEI layer growth.,High temperature variation (ΔT=16.6°C) may accelerate degradation.,"Battery degradation detected at 74.4% SOH.
+Significant capacity fade of 26.2% suggests accelerated degradation.
+Significant ICA peak shift to 3.55V (Δ=0.288V), major electrode degradation likely. ICA peak magnitude remains strong at 325.773.
+Elevated internal resistance at 0.1737Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.6°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,135,74.10795710900781,Battery is significantly degraded with SOH at 74.1%.,Significant capacity fade of 26.5% suggests accelerated degradation.,"Significant ICA peak shift to 3.48V (Δ=0.218V), major electrode degradation likely. ICA peak magnitude remains strong at 904.462.",Elevated internal resistance at 0.1075Ω suggests SEI layer growth.,High temperature variation (ΔT=16.8°C) may accelerate degradation.,"Battery degradation detected at 74.1% SOH.
+Significant capacity fade of 26.5% suggests accelerated degradation.
+Significant ICA peak shift to 3.48V (Δ=0.218V), major electrode degradation likely. ICA peak magnitude remains strong at 904.462.
+Elevated internal resistance at 0.1075Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,136,73.53993654981517,Battery is significantly degraded with SOH at 73.5%.,Significant capacity fade of 27.0% suggests accelerated degradation.,"Significant ICA peak shift to 3.59V (Δ=0.327V), major electrode degradation likely. ICA peak magnitude remains strong at 219.722.",Elevated internal resistance at 0.1082Ω suggests SEI layer growth.,High temperature variation (ΔT=16.8°C) may accelerate degradation.,"Battery degradation detected at 73.5% SOH.
+Significant capacity fade of 27.0% suggests accelerated degradation.
+Significant ICA peak shift to 3.59V (Δ=0.327V), major electrode degradation likely. ICA peak magnitude remains strong at 219.722.
+Elevated internal resistance at 0.1082Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,137,73.55729388669047,Battery is significantly degraded with SOH at 73.6%.,Significant capacity fade of 27.0% suggests accelerated degradation.,"Significant ICA peak shift to 3.55V (Δ=0.279V), major electrode degradation likely. ICA peak magnitude remains strong at 432.135.",Elevated internal resistance at 0.1078Ω suggests SEI layer growth.,High temperature variation (ΔT=16.8°C) may accelerate degradation.,"Battery degradation detected at 73.6% SOH.
+Significant capacity fade of 27.0% suggests accelerated degradation.
+Significant ICA peak shift to 3.55V (Δ=0.279V), major electrode degradation likely. ICA peak magnitude remains strong at 432.135.
+Elevated internal resistance at 0.1078Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,138,73.56067241598609,Battery is significantly degraded with SOH at 73.6%.,Significant capacity fade of 27.0% suggests accelerated degradation.,"Significant ICA peak shift to 3.49V (Δ=0.222V), major electrode degradation likely. ICA peak magnitude remains strong at 5501.168.",Elevated internal resistance at 0.1079Ω suggests SEI layer growth.,High temperature variation (ΔT=16.8°C) may accelerate degradation.,"Battery degradation detected at 73.6% SOH.
+Significant capacity fade of 27.0% suggests accelerated degradation.
+Significant ICA peak shift to 3.49V (Δ=0.222V), major electrode degradation likely. ICA peak magnitude remains strong at 5501.168.
+Elevated internal resistance at 0.1079Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,139,73.2680528603407,Battery is significantly degraded with SOH at 73.3%.,Significant capacity fade of 27.3% suggests accelerated degradation.,"Significant ICA peak shift to 3.60V (Δ=0.331V), major electrode degradation likely. ICA peak magnitude remains strong at 305.555.",Elevated internal resistance at 0.1851Ω suggests SEI layer growth.,High temperature variation (ΔT=16.9°C) may accelerate degradation.,"Battery degradation detected at 73.3% SOH.
+Significant capacity fade of 27.3% suggests accelerated degradation.
+Significant ICA peak shift to 3.60V (Δ=0.331V), major electrode degradation likely. ICA peak magnitude remains strong at 305.555.
+Elevated internal resistance at 0.1851Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,140,72.98972077509204,Battery is significantly degraded with SOH at 73.0%.,Significant capacity fade of 27.6% suggests accelerated degradation.,"Significant ICA peak shift to 3.57V (Δ=0.309V), major electrode degradation likely. ICA peak magnitude remains strong at 316.780.",Elevated internal resistance at 0.1893Ω suggests SEI layer growth.,High temperature variation (ΔT=17.0°C) may accelerate degradation.,"Battery degradation detected at 73.0% SOH.
+Significant capacity fade of 27.6% suggests accelerated degradation.
+Significant ICA peak shift to 3.57V (Δ=0.309V), major electrode degradation likely. ICA peak magnitude remains strong at 316.780.
+Elevated internal resistance at 0.1893Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,141,72.707478478137,Battery is significantly degraded with SOH at 72.7%.,Significant capacity fade of 27.9% suggests accelerated degradation.,"ICA peak shows moderate shift to 3.46V (Δ=0.191V), indicating structural changes. ICA peak magnitude remains strong at 754.109.",Elevated internal resistance at 0.1095Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 72.7% SOH.
+Significant capacity fade of 27.9% suggests accelerated degradation.
+ICA peak shows moderate shift to 3.46V (Δ=0.191V), indicating structural changes. ICA peak magnitude remains strong at 754.109.
+Elevated internal resistance at 0.1095Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,142,72.70330518052876,Battery is significantly degraded with SOH at 72.7%.,Significant capacity fade of 27.9% suggests accelerated degradation.,"Significant ICA peak shift to 3.58V (Δ=0.315V), major electrode degradation likely. ICA peak magnitude remains strong at 1583.772.",Elevated internal resistance at 0.1875Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 72.7% SOH.
+Significant capacity fade of 27.9% suggests accelerated degradation.
+Significant ICA peak shift to 3.58V (Δ=0.315V), major electrode degradation likely. ICA peak magnitude remains strong at 1583.772.
+Elevated internal resistance at 0.1875Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,143,72.43680818215955,Battery is significantly degraded with SOH at 72.4%.,Significant capacity fade of 28.1% suggests accelerated degradation.,"Significant ICA peak shift to 3.48V (Δ=0.211V), major electrode degradation likely. ICA peak magnitude remains strong at 692.380.",Elevated internal resistance at 0.1819Ω suggests SEI layer growth.,High temperature variation (ΔT=16.9°C) may accelerate degradation.,"Battery degradation detected at 72.4% SOH.
+Significant capacity fade of 28.1% suggests accelerated degradation.
+Significant ICA peak shift to 3.48V (Δ=0.211V), major electrode degradation likely. ICA peak magnitude remains strong at 692.380.
+Elevated internal resistance at 0.1819Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,144,72.14563728793844,Battery is significantly degraded with SOH at 72.1%.,Significant capacity fade of 28.4% suggests accelerated degradation.,"ICA peak shows moderate shift to 3.43V (Δ=0.160V), indicating structural changes. ICA peak magnitude remains strong at 598.473.",Elevated internal resistance at 0.1094Ω suggests SEI layer growth.,High temperature variation (ΔT=17.0°C) may accelerate degradation.,"Battery degradation detected at 72.1% SOH.
+Significant capacity fade of 28.4% suggests accelerated degradation.
+ICA peak shows moderate shift to 3.43V (Δ=0.160V), indicating structural changes. ICA peak magnitude remains strong at 598.473.
+Elevated internal resistance at 0.1094Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,145,71.84842350914839,Battery is significantly degraded with SOH at 71.8%.,Significant capacity fade of 28.7% suggests accelerated degradation.,"Significant ICA peak shift to 3.61V (Δ=0.344V), major electrode degradation likely. ICA peak magnitude remains strong at 336.847.",Elevated internal resistance at 0.1850Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 71.8% SOH.
+Significant capacity fade of 28.7% suggests accelerated degradation.
+Significant ICA peak shift to 3.61V (Δ=0.344V), major electrode degradation likely. ICA peak magnitude remains strong at 336.847.
+Elevated internal resistance at 0.1850Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,146,71.57682808520298,Battery is significantly degraded with SOH at 71.6%.,Significant capacity fade of 29.0% suggests accelerated degradation.,"Significant ICA peak shift to 3.56V (Δ=0.292V), major electrode degradation likely. ICA peak magnitude remains strong at 845.905.",Elevated internal resistance at 0.1111Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery degradation detected at 71.6% SOH.
+Significant capacity fade of 29.0% suggests accelerated degradation.
+Significant ICA peak shift to 3.56V (Δ=0.292V), major electrode degradation likely. ICA peak magnitude remains strong at 845.905.
+Elevated internal resistance at 0.1111Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,147,71.5929707056519,Battery is significantly degraded with SOH at 71.6%.,Significant capacity fade of 29.0% suggests accelerated degradation.,"Significant ICA peak shift to 3.59V (Δ=0.319V), major electrode degradation likely. ICA peak magnitude remains strong at 958.283.",Elevated internal resistance at 0.1101Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery degradation detected at 71.6% SOH.
+Significant capacity fade of 29.0% suggests accelerated degradation.
+Significant ICA peak shift to 3.59V (Δ=0.319V), major electrode degradation likely. ICA peak magnitude remains strong at 958.283.
+Elevated internal resistance at 0.1101Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,148,71.58355486033682,Battery is significantly degraded with SOH at 71.6%.,Significant capacity fade of 29.0% suggests accelerated degradation.,"Significant ICA peak shift to 3.48V (Δ=0.209V), major electrode degradation likely. ICA peak magnitude remains strong at 971.351.",Elevated internal resistance at 0.1875Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery degradation detected at 71.6% SOH.
+Significant capacity fade of 29.0% suggests accelerated degradation.
+Significant ICA peak shift to 3.48V (Δ=0.209V), major electrode degradation likely. ICA peak magnitude remains strong at 971.351.
+Elevated internal resistance at 0.1875Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,149,71.88651633814789,Battery is significantly degraded with SOH at 71.9%.,Significant capacity fade of 28.7% suggests accelerated degradation.,"Significant ICA peak shift to 3.55V (Δ=0.284V), major electrode degradation likely. ICA peak magnitude remains strong at 197.226.",Elevated internal resistance at 0.1828Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 71.9% SOH.
+Significant capacity fade of 28.7% suggests accelerated degradation.
+Significant ICA peak shift to 3.55V (Δ=0.284V), major electrode degradation likely. ICA peak magnitude remains strong at 197.226.
+Elevated internal resistance at 0.1828Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,150,73.85485752850192,Battery is significantly degraded with SOH at 73.9%.,Significant capacity fade of 26.7% suggests accelerated degradation.,"ICA peak shows moderate shift to 3.44V (Δ=0.178V), indicating structural changes. ICA peak magnitude remains strong at 1082.228.",Elevated internal resistance at 0.1847Ω suggests SEI layer growth.,High temperature variation (ΔT=16.8°C) may accelerate degradation.,"Battery degradation detected at 73.9% SOH.
+Significant capacity fade of 26.7% suggests accelerated degradation.
+ICA peak shows moderate shift to 3.44V (Δ=0.178V), indicating structural changes. ICA peak magnitude remains strong at 1082.228.
+Elevated internal resistance at 0.1847Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.8°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,151,72.73676298693451,Battery is significantly degraded with SOH at 72.7%.,Significant capacity fade of 27.8% suggests accelerated degradation.,"Significant ICA peak shift to 3.47V (Δ=0.205V), major electrode degradation likely. ICA peak magnitude remains strong at 1968.721.",Elevated internal resistance at 0.1787Ω suggests SEI layer growth.,High temperature variation (ΔT=16.9°C) may accelerate degradation.,"Battery degradation detected at 72.7% SOH.
+Significant capacity fade of 27.8% suggests accelerated degradation.
+Significant ICA peak shift to 3.47V (Δ=0.205V), major electrode degradation likely. ICA peak magnitude remains strong at 1968.721.
+Elevated internal resistance at 0.1787Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,152,72.16650080848476,Battery is significantly degraded with SOH at 72.2%.,Significant capacity fade of 28.4% suggests accelerated degradation.,"Significant ICA peak shift to 3.59V (Δ=0.328V), major electrode degradation likely. ICA peak magnitude remains strong at 15874.650.",Elevated internal resistance at 0.1763Ω suggests SEI layer growth.,High temperature variation (ΔT=16.9°C) may accelerate degradation.,"Battery degradation detected at 72.2% SOH.
+Significant capacity fade of 28.4% suggests accelerated degradation.
+Significant ICA peak shift to 3.59V (Δ=0.328V), major electrode degradation likely. ICA peak magnitude remains strong at 15874.650.
+Elevated internal resistance at 0.1763Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,153,71.87574889700961,Battery is significantly degraded with SOH at 71.9%.,Significant capacity fade of 28.7% suggests accelerated degradation.,"Significant ICA peak shift to 3.56V (Δ=0.297V), major electrode degradation likely. ICA peak magnitude remains strong at 611.938.",Elevated internal resistance at 0.1785Ω suggests SEI layer growth.,High temperature variation (ΔT=17.0°C) may accelerate degradation.,"Battery degradation detected at 71.9% SOH.
+Significant capacity fade of 28.7% suggests accelerated degradation.
+Significant ICA peak shift to 3.56V (Δ=0.297V), major electrode degradation likely. ICA peak magnitude remains strong at 611.938.
+Elevated internal resistance at 0.1785Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,154,71.60206343923758,Battery is significantly degraded with SOH at 71.6%.,Significant capacity fade of 29.0% suggests accelerated degradation.,"Significant ICA peak shift to 3.57V (Δ=0.300V), major electrode degradation likely. ICA peak magnitude remains strong at 4078.785.",Elevated internal resistance at 0.1811Ω suggests SEI layer growth.,High temperature variation (ΔT=17.0°C) may accelerate degradation.,"Battery degradation detected at 71.6% SOH.
+Significant capacity fade of 29.0% suggests accelerated degradation.
+Significant ICA peak shift to 3.57V (Δ=0.300V), major electrode degradation likely. ICA peak magnitude remains strong at 4078.785.
+Elevated internal resistance at 0.1811Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.0°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,155,71.32194157026335,Battery is significantly degraded with SOH at 71.3%.,Significant capacity fade of 29.2% suggests accelerated degradation.,"Significant ICA peak shift to 3.61V (Δ=0.346V), major electrode degradation likely. ICA peak magnitude remains strong at 6754.077.",Elevated internal resistance at 0.1793Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 71.3% SOH.
+Significant capacity fade of 29.2% suggests accelerated degradation.
+Significant ICA peak shift to 3.61V (Δ=0.346V), major electrode degradation likely. ICA peak magnitude remains strong at 6754.077.
+Elevated internal resistance at 0.1793Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,156,71.30711389020415,Battery is significantly degraded with SOH at 71.3%.,Significant capacity fade of 29.3% suggests accelerated degradation.,"Significant ICA peak shift to 3.56V (Δ=0.289V), major electrode degradation likely. ICA peak magnitude remains strong at 460.596.",Elevated internal resistance at 0.1844Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 71.3% SOH.
+Significant capacity fade of 29.3% suggests accelerated degradation.
+Significant ICA peak shift to 3.56V (Δ=0.289V), major electrode degradation likely. ICA peak magnitude remains strong at 460.596.
+Elevated internal resistance at 0.1844Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,157,71.01356336148496,Battery is significantly degraded with SOH at 71.0%.,Significant capacity fade of 29.6% suggests accelerated degradation.,"Significant ICA peak shift to 3.59V (Δ=0.321V), major electrode degradation likely. ICA peak magnitude remains strong at 973.392.",Elevated internal resistance at 0.1828Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 71.0% SOH.
+Significant capacity fade of 29.6% suggests accelerated degradation.
+Significant ICA peak shift to 3.59V (Δ=0.321V), major electrode degradation likely. ICA peak magnitude remains strong at 973.392.
+Elevated internal resistance at 0.1828Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,158,70.7549274545718,Battery is significantly degraded with SOH at 70.8%.,Significant capacity fade of 29.8% suggests accelerated degradation.,"Significant ICA peak shift to 3.49V (Δ=0.225V), major electrode degradation likely. ICA peak magnitude remains strong at 961.420.",Elevated internal resistance at 0.1789Ω suggests SEI layer growth.,High temperature variation (ΔT=17.1°C) may accelerate degradation.,"Battery degradation detected at 70.8% SOH.
+Significant capacity fade of 29.8% suggests accelerated degradation.
+Significant ICA peak shift to 3.49V (Δ=0.225V), major electrode degradation likely. ICA peak magnitude remains strong at 961.420.
+Elevated internal resistance at 0.1789Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,159,70.77254445771494,Battery is significantly degraded with SOH at 70.8%.,Significant capacity fade of 29.8% suggests accelerated degradation.,"Significant ICA peak shift to 3.58V (Δ=0.317V), major electrode degradation likely. ICA peak magnitude remains strong at 37299.451.",Elevated internal resistance at 0.1851Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery degradation detected at 70.8% SOH.
+Significant capacity fade of 29.8% suggests accelerated degradation.
+Significant ICA peak shift to 3.58V (Δ=0.317V), major electrode degradation likely. ICA peak magnitude remains strong at 37299.451.
+Elevated internal resistance at 0.1851Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,160,70.77540542374088,Battery is significantly degraded with SOH at 70.8%.,Significant capacity fade of 29.8% suggests accelerated degradation.,"Significant ICA peak shift to 3.58V (Δ=0.315V), major electrode degradation likely. ICA peak magnitude remains strong at 8187.749.",Elevated internal resistance at 0.1920Ω suggests SEI layer growth.,High temperature variation (ΔT=17.3°C) may accelerate degradation.,"Battery degradation detected at 70.8% SOH.
+Significant capacity fade of 29.8% suggests accelerated degradation.
+Significant ICA peak shift to 3.58V (Δ=0.315V), major electrode degradation likely. ICA peak magnitude remains strong at 8187.749.
+Elevated internal resistance at 0.1920Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.3°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,161,70.47550750397875,Battery is significantly degraded with SOH at 70.5%.,Significant capacity fade of 30.1% suggests accelerated degradation.,"ICA peak shows moderate shift to 3.45V (Δ=0.188V), indicating structural changes. ICA peak magnitude remains strong at 540.093.",Elevated internal resistance at 0.1115Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery degradation detected at 70.5% SOH.
+Significant capacity fade of 30.1% suggests accelerated degradation.
+ICA peak shows moderate shift to 3.45V (Δ=0.188V), indicating structural changes. ICA peak magnitude remains strong at 540.093.
+Elevated internal resistance at 0.1115Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,162,70.48563041810957,Battery is significantly degraded with SOH at 70.5%.,Significant capacity fade of 30.1% suggests accelerated degradation.,"Significant ICA peak shift to 3.58V (Δ=0.315V), major electrode degradation likely. ICA peak magnitude remains strong at 5109.237.",Elevated internal resistance at 0.1908Ω suggests SEI layer growth.,High temperature variation (ΔT=17.3°C) may accelerate degradation.,"Battery degradation detected at 70.5% SOH.
+Significant capacity fade of 30.1% suggests accelerated degradation.
+Significant ICA peak shift to 3.58V (Δ=0.315V), major electrode degradation likely. ICA peak magnitude remains strong at 5109.237.
+Elevated internal resistance at 0.1908Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.3°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,163,70.23531244180397,Battery is significantly degraded with SOH at 70.2%.,Significant capacity fade of 30.3% suggests accelerated degradation.,"Significant ICA peak shift to 3.58V (Δ=0.316V), major electrode degradation likely. ICA peak magnitude remains strong at 5438.176.",Elevated internal resistance at 0.1855Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery degradation detected at 70.2% SOH.
+Significant capacity fade of 30.3% suggests accelerated degradation.
+Significant ICA peak shift to 3.58V (Δ=0.316V), major electrode degradation likely. ICA peak magnitude remains strong at 5438.176.
+Elevated internal resistance at 0.1855Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,164,69.93882142370083,Battery is significantly degraded with SOH at 69.9%.,Significant capacity fade of 30.6% suggests accelerated degradation.,"Significant ICA peak shift to 3.47V (Δ=0.201V), major electrode degradation likely. ICA peak magnitude remains strong at 4868.182.",Elevated internal resistance at 0.1122Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery critically degraded at 69.9% SOH.
+Significant capacity fade of 30.6% suggests accelerated degradation.
+Significant ICA peak shift to 3.47V (Δ=0.201V), major electrode degradation likely. ICA peak magnitude remains strong at 4868.182.
+Elevated internal resistance at 0.1122Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Battery replacement recommended.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Replacement recommended within 49 cycles."
+B0005,165,69.90890905512214,Battery is significantly degraded with SOH at 69.9%.,Significant capacity fade of 30.7% suggests accelerated degradation.,"Significant ICA peak shift to 3.62V (Δ=0.352V), major electrode degradation likely. ICA peak magnitude remains strong at 844.311.",Elevated internal resistance at 0.1836Ω suggests SEI layer growth.,High temperature variation (ΔT=17.2°C) may accelerate degradation.,"Battery critically degraded at 69.9% SOH.
+Significant capacity fade of 30.7% suggests accelerated degradation.
+Significant ICA peak shift to 3.62V (Δ=0.352V), major electrode degradation likely. ICA peak magnitude remains strong at 844.311.
+Elevated internal resistance at 0.1836Ω suggests SEI layer growth.
+High temperature variation (ΔT=17.2°C) may accelerate degradation.
+Battery replacement recommended.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Replacement recommended within 49 cycles."
+B0005,166,71.07977535187062,Battery is significantly degraded with SOH at 71.1%.,Significant capacity fade of 29.5% suggests accelerated degradation.,"Significant ICA peak shift to 3.50V (Δ=0.229V), major electrode degradation likely. ICA peak magnitude remains strong at 931.876.",Elevated internal resistance at 0.1774Ω suggests SEI layer growth.,High temperature variation (ΔT=16.1°C) may accelerate degradation.,"Battery degradation detected at 71.1% SOH.
+Significant capacity fade of 29.5% suggests accelerated degradation.
+Significant ICA peak shift to 3.50V (Δ=0.229V), major electrode degradation likely. ICA peak magnitude remains strong at 931.876.
+Elevated internal resistance at 0.1774Ω suggests SEI layer growth.
+High temperature variation (ΔT=16.1°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
+B0005,167,71.95205157786484,Battery is significantly degraded with SOH at 72.0%.,Significant capacity fade of 28.6% suggests accelerated degradation.,"Significant ICA peak shift to 3.53V (Δ=0.265V), major electrode degradation likely. ICA peak magnitude remains strong at 411.300.",Elevated internal resistance at 0.1845Ω suggests SEI layer growth.,High temperature variation (ΔT=15.9°C) may accelerate degradation.,"Battery degradation detected at 72.0% SOH.
+Significant capacity fade of 28.6% suggests accelerated degradation.
+Significant ICA peak shift to 3.53V (Δ=0.265V), major electrode degradation likely. ICA peak magnitude remains strong at 411.300.
+Elevated internal resistance at 0.1845Ω suggests SEI layer growth.
+High temperature variation (ΔT=15.9°C) may accelerate degradation.
+Recommend monitoring for accelerated aging.","Diagnosis: capacity fade, electrode structural change, increased internal resistance, thermal stress. Monitor closely. Consider reducing charge/discharge rates."
