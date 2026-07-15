@@ -2,9 +2,9 @@
 
 A complete end-to-end machine learning pipeline for predicting battery health using physics-guided features and multimodal deep learning.
 
-**Author:** Akshay Kumar  
+**Author:** Akshay Kumar Bolusani
 **Completed:** February 2026  
-**Status:** ✅ All 3 Phases Complete
+**Status:** ✅ All Phases Complete
 
 ---
 
